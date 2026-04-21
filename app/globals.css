@@ -23,6 +23,11 @@
 
 html {
   scroll-behavior: smooth;
+  /* framer-motion's useScroll uses document.documentElement as the default
+     scroll container and warns in dev if it's position: static. Giving
+     <html> an explicit non-static position silences the warning and lets
+     scroll offsets be measured against a proper containing block. */
+  position: relative;
 }
 
 html,

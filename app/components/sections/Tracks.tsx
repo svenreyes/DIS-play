@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import Reveal from "../ui/Reveal";
-import { tracks } from "../../content";
+import { tracks } from "@/app/data/siteContent";
 
 const strokes: SprayStroke[] = [
   {

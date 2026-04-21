@@ -1,3 +1,4 @@
+// Central event copy shared across the landing page sections.
 export type ScheduleItem = {
   time: string;
   title: string;

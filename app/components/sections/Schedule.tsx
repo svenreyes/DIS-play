@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import Reveal from "../ui/Reveal";
-import { schedule } from "../../content";
+import { schedule } from "@/app/data/siteContent";
 
 const rotations = [-0.8, 0.6, -0.4, 0.8, -0.6, 0.5, -0.9, 0.7, -0.3, 0.6];
 

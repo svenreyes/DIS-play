@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import TagStamp from "../ui/TagStamp";
-import { event, tracks } from "../../content";
+import { event, tracks } from "@/app/data/siteContent";
 
 const heroStrokes: SprayStroke[] = [
   {

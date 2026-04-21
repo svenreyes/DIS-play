@@ -2,7 +2,7 @@
 
 import Reveal from "../ui/Reveal";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
-import { event } from "../../content";
+import { event } from "@/app/data/siteContent";
 
 const strokes: SprayStroke[] = [
   {
