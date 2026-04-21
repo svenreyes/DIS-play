@@ -13,6 +13,7 @@ export type Role = {
   index: string;
   title: string;
   description: string;
+  meta: string[];
 };
 
 export const event = {
@@ -22,6 +23,7 @@ export const event = {
   venue: "Cornell Tech",
   address: "2 West Loop Rd, New York, NY 10044",
   email: "yc2699@cornell.edu",
+  contactName: "Cecilia Chen",
 };
 
 export const schedule: ScheduleItem[] = [
@@ -89,36 +91,56 @@ export const roles: Role[] = [
     index: "01",
     title: "Creative Studio",
     description:
-      "Bring your studio on stage. Residency-style showcase with full creative freedom.",
+      "Run a studio, agency, or creative practice? Exhibit your portfolio, meet potential collaborators, and connect with Cornell Tech students during our opening gallery hour.",
+    meta: [
+      "60-minute networking showcase (12–1 PM)",
+      "Bring prints, screens, or physical work",
+      "Table + display space provided",
+      "Open to studios and solo practitioners",
+    ],
   },
   {
     index: "02",
     title: "Creative Director",
     description:
-      "Shape a track end-to-end. Curate artists, set the tone, break the format.",
+      "Looking for experienced creative leaders to share their feedback on student portfolios.",
+    meta: ["Open to directors in creative studios"],
   },
   {
     index: "03",
     title: "Workshop Host",
     description:
-      "Run a hands-on 30–60 min session. Teach a tool, a hack, a way of seeing.",
+      "Got a skill at the intersection of creativity and technology? Lead a 45-minute hands-on workshop for an audience of builders and makers.",
+    meta: [
+      "45-minute session",
+      "Interactive and hands-on preferred over lecture-style",
+    ],
   },
   {
     index: "04",
     title: "Keynote Speaker",
     description:
-      "15 minutes. One provocative idea. No slides required.",
+      "We're looking for speakers who challenge conventions and inspire action.",
+    meta: [
+      "20-minute keynote slot",
+      "Topics: creative entrepreneurship, art × code, industry disruption",
+    ],
   },
   {
     index: "05",
     title: "Startup Demo",
-    description:
-      "Show what you're building. Live product walkthrough, feedback welcome.",
+    description: "Share the founder story and your product with the crowd.",
+    meta: ["20-minute demo"],
   },
   {
     index: "06",
     title: "Rapid-Fire Demo",
     description:
-      "Five minutes, one project. Raw, unfinished, unapologetic.",
+      "Building something weird, wild, or half-finished? Perfect. Show it in 4 minutes. No polish required, that's the whole point.",
+    meta: [
+      "~4 minutes, rapid-fire format",
+      "Work in progress, classwork and research",
+      "If it might break on stage, even better",
+    ],
   },
 ];

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import BackgroundFX from "./components/fx/BackgroundFX";
 import CursorGlow from "./components/fx/CursorGlow";
+import GraffitiBackground from "./components/fx/GraffitiBackground";
 import SvgDefs from "./components/fx/SvgDefs";
 
 const display = localFont({
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="relative antialiased">
         <SvgDefs />
         <BackgroundFX />
+        <GraffitiBackground />
         <CursorGlow />
         <main className="relative z-10">{children}</main>
       </body>

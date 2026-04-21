@@ -1,22 +1,55 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import SprayStreak from "../fx/SprayStreak";
+import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import Reveal from "../ui/Reveal";
 import { schedule } from "../../content";
 
 const rotations = [-0.8, 0.6, -0.4, 0.8, -0.6, 0.5, -0.9, 0.7, -0.3, 0.6];
 
+const strokes: SprayStroke[] = [
+  {
+    bezier: [
+      [0.08, 0.02],
+      [0.12, 0.3],
+      [0.05, 0.65],
+      [0.1, 0.98],
+    ],
+    samples: 60,
+    stepInterval: 22,
+    thickness: 0.85,
+    startDelay: 100,
+  },
+  {
+    bezier: [
+      [-0.05, 0.18],
+      [0.25, 0.12],
+      [0.55, 0.22],
+      [1.05, 0.14],
+    ],
+    samples: 28,
+    stepInterval: 26,
+    thickness: 0.7,
+    startDelay: 700,
+  },
+];
+
 export default function Schedule() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative isolate overflow-hidden px-6 py-28 md:px-12 md:py-40">
+    <section
+      id="schedule"
+      className="relative isolate overflow-hidden px-6 py-28 md:px-12 md:py-40"
+      style={{ scrollMarginTop: "6rem" }}
+    >
+      <SprayLayer strokes={strokes} />
+
       <div className="mb-14 flex items-end justify-between">
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(57,255,20,0.9)" }} />
-            <span className="font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
               // Schedule
             </span>
           </div>
@@ -31,7 +64,7 @@ export default function Schedule() {
       </div>
 
       <div className="relative mx-auto max-w-5xl">
-        {/* Divider with vertical spray streak */}
+        {/* Divider */}
         <div
           aria-hidden
           className="absolute left-[22%] top-0 bottom-0 hidden w-px md:block"
@@ -40,22 +73,6 @@ export default function Schedule() {
               "repeating-linear-gradient(to bottom, rgba(237,234,224,0.35) 0 6px, transparent 6px 14px)",
           }}
         />
-        <div aria-hidden className="absolute left-[22%] top-0 bottom-0 hidden w-16 -translate-x-1/2 md:block">
-          <SprayStreak
-            className="h-full w-full"
-            viewBox="0 0 40 1000"
-            preserveAspectRatio="none"
-            d="M 20 20 C 28 180, 12 340, 22 520 S 18 820, 20 980"
-            strokeWidth={6}
-            gradient="vertical"
-            delay={0.1}
-            duration={2}
-            drips={[
-              { cx: 22, cy: 320, r: 2 },
-              { cx: 18, cy: 640, r: 2.5 },
-            ]}
-          />
-        </div>
 
         <ul className="relative flex flex-col">
           {schedule.map((item, i) => (
@@ -95,15 +112,6 @@ export default function Schedule() {
             </motion.li>
           ))}
         </ul>
-
-        {/* Bottom scribble */}
-        <SprayStreak
-          className="pointer-events-none absolute -bottom-10 -right-6 h-20 w-72"
-          viewBox="0 0 300 80"
-          d="M 10 40 C 60 10, 140 70, 200 30 S 270 55, 290 40"
-          strokeWidth={8}
-          delay={0.3}
-        />
       </div>
     </section>
   );

@@ -1,9 +1,36 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import SprayStreak from "../fx/SprayStreak";
+import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import Reveal from "../ui/Reveal";
 import { tracks } from "../../content";
+
+const strokes: SprayStroke[] = [
+  {
+    bezier: [
+      [-0.05, 0.48],
+      [0.3, 0.3],
+      [0.65, 0.6],
+      [1.05, 0.4],
+    ],
+    samples: 44,
+    stepInterval: 22,
+    thickness: 1,
+    startDelay: 120,
+  },
+  {
+    bezier: [
+      [0.5, 0.92],
+      [0.7, 0.82],
+      [0.88, 0.96],
+      [1.05, 0.86],
+    ],
+    samples: 22,
+    stepInterval: 28,
+    thickness: 0.75,
+    startDelay: 900,
+  },
+];
 
 type Placement = {
   className: string;
@@ -37,12 +64,14 @@ const placements: Placement[] = [
 export default function Tracks() {
   return (
     <section className="relative isolate overflow-hidden px-6 py-28 md:px-12 md:py-40">
+      <SprayLayer strokes={strokes} />
+
       {/* Header */}
       <div className="mb-16 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(57,255,20,0.9)" }} />
-            <span className="font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
               // Tracks
             </span>
           </div>
@@ -55,15 +84,6 @@ export default function Tracks() {
           </h2>
         </Reveal>
       </div>
-
-      {/* Separator spray */}
-      <SprayStreak
-        className="pointer-events-none absolute left-0 right-0 top-[18%] h-32 w-full"
-        viewBox="0 0 1400 120"
-        d="M -20 80 C 280 10, 520 110, 820 50 S 1200 100, 1420 40"
-        strokeWidth={18}
-        delay={0.2}
-      />
 
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-12 md:grid-rows-3 md:gap-6">
         {tracks.map((t, i) => (

@@ -62,6 +62,42 @@ export default function SvgDefs() {
           </feMerge>
         </filter>
 
+        {/* Figma-style "noise" texture: fine fractal grain composited into
+            the text so it looks dusty / printed, instead of flat vector. */}
+        <filter
+          id="grafTexture"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          colorInterpolationFilters="sRGB"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="1.1"
+            numOctaves="2"
+            seed="11"
+            stitchTiles="stitch"
+            result="noise"
+          />
+          {/* Convert the color noise into a speckled alpha mask.
+              The matrix isolates luminance into alpha and boosts contrast
+              so only high-luminance noise pixels become opaque. */}
+          <feColorMatrix
+            in="noise"
+            type="matrix"
+            values="0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 1.1 -0.35"
+            result="grain"
+          />
+          {/* Carve the grain out of the text: "out" keeps SourceGraphic
+              where grain is transparent, producing a speckled letterform
+              rather than a flat block of color. */}
+          <feComposite in="SourceGraphic" in2="grain" operator="out" />
+        </filter>
+
         <linearGradient id="sprayGradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#39ff14" stopOpacity="0" />
           <stop offset="8%" stopColor="#39ff14" stopOpacity="0.7" />

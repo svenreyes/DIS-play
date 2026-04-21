@@ -1,7 +1,7 @@
 "use client";
 
 import Reveal from "../ui/Reveal";
-import SprayStreak from "../fx/SprayStreak";
+import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import { event } from "../../content";
 
 type Card = {
@@ -50,37 +50,48 @@ const cards: Card[] = [
   },
 ];
 
+const strokes: SprayStroke[] = [
+  {
+    bezier: [
+      [-0.05, 0.18],
+      [0.3, 0.05],
+      [0.65, 0.3],
+      [1.05, 0.16],
+    ],
+    samples: 36,
+    stepInterval: 26,
+    thickness: 0.85,
+    startDelay: 120,
+  },
+  {
+    bezier: [
+      [1.05, 0.78],
+      [0.7, 0.6],
+      [0.3, 0.95],
+      [-0.05, 0.72],
+    ],
+    samples: 30,
+    stepInterval: 28,
+    thickness: 0.7,
+    startDelay: 650,
+  },
+];
+
 export default function EventInfo() {
   return (
     <section className="relative isolate overflow-hidden px-6 py-28 md:px-12 md:py-40">
-      {/* Eyebrow */}
+      <SprayLayer strokes={strokes} />
+
       <Reveal>
         <div className="mb-12 flex items-center gap-4">
           <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(57,255,20,0.9)" }} />
-          <span className="font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+          <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
             // Event Info
           </span>
         </div>
       </Reveal>
 
       <div className="relative grid grid-cols-1 gap-10 md:grid-cols-4 md:grid-rows-2 md:gap-6">
-        <SprayStreak
-          className="pointer-events-none absolute inset-0 h-full w-full"
-          viewBox="0 0 1200 600"
-          d="M 120 120 Q 400 40, 700 180 T 1120 140"
-          strokeWidth={14}
-          delay={0.2}
-          drips={[{ cx: 720, cy: 180, r: 3 }, { cx: 940, cy: 170, r: 2 }]}
-        />
-        <SprayStreak
-          className="pointer-events-none absolute inset-0 h-full w-full"
-          viewBox="0 0 1200 600"
-          d="M 960 480 Q 800 520, 620 440 Q 450 370, 180 520"
-          strokeWidth={10}
-          delay={0.4}
-          gradient="horizontal"
-        />
-
         {cards.map((c, i) => (
           <Reveal
             key={c.eyebrow}
@@ -92,32 +103,6 @@ export default function EventInfo() {
             <InfoCard {...c} />
           </Reveal>
         ))}
-
-        {/* Scribbled arrow */}
-        <svg
-          aria-hidden
-          className="pointer-events-none absolute bottom-4 right-6 z-20 h-24 w-36 text-neon md:h-32 md:w-48"
-          viewBox="0 0 200 120"
-          fill="none"
-        >
-          <path
-            d="M 20 30 C 40 90, 120 90, 160 50"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            fill="none"
-            filter="url(#chalk) url(#neonGlow)"
-          />
-          <path
-            d="M 140 38 L 160 50 L 150 72"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-            filter="url(#chalk) url(#neonGlow)"
-          />
-        </svg>
       </div>
     </section>
   );

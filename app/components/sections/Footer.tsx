@@ -1,19 +1,28 @@
 "use client";
 
 import Reveal from "../ui/Reveal";
-import SprayStreak from "../fx/SprayStreak";
+import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import { event } from "../../content";
+
+const strokes: SprayStroke[] = [
+  {
+    bezier: [
+      [-0.05, 0.05],
+      [0.3, 0.18],
+      [0.7, 0.02],
+      [1.05, 0.14],
+    ],
+    samples: 36,
+    stepInterval: 24,
+    thickness: 1,
+    startDelay: 100,
+  },
+];
 
 export default function Footer() {
   return (
     <footer className="relative isolate overflow-hidden px-6 pt-24 pb-10 md:px-12 md:pt-40">
-      <SprayStreak
-        className="pointer-events-none absolute -top-6 left-0 h-24 w-full"
-        viewBox="0 0 1400 120"
-        d="M -20 60 C 340 100, 620 20, 900 70 S 1300 40, 1420 80"
-        strokeWidth={14}
-        delay={0.1}
-      />
+      <SprayLayer strokes={strokes} />
 
       <Reveal>
         <h2

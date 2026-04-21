@@ -21,6 +21,10 @@
   --tap-neon: 57 255 20;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   background: var(--color-ink);
@@ -28,6 +32,12 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -140,9 +150,17 @@ body {
 
 /* ===== Utilities ===== */
 
+/* Green text: embossed edges (dark shadow bottom-right, subtle highlight
+   top-left) layered underneath the neon glow. The dark edges carve the
+   glyph away from the bright spray paint so it reads as raised. */
 .glow-neon {
   color: var(--color-neon);
   text-shadow:
+    /* emboss */
+    -1px -1px 0 rgba(255, 255, 255, 0.14),
+    1px 1px 0 rgba(0, 0, 0, 0.8),
+    2px 2px 3px rgba(0, 0, 0, 0.55),
+    /* neon glow */
     0 0 4px rgba(57, 255, 20, 0.9),
     0 0 14px rgba(57, 255, 20, 0.75),
     0 0 36px rgba(57, 255, 20, 0.45),
@@ -151,8 +169,31 @@ body {
 
 .glow-neon-soft {
   text-shadow:
+    /* emboss */
+    -1px -1px 0 rgba(255, 255, 255, 0.1),
+    1px 1px 0 rgba(0, 0, 0, 0.7),
+    2px 2px 2px rgba(0, 0, 0, 0.5),
+    /* glow */
     0 0 6px rgba(57, 255, 20, 0.5),
     0 0 18px rgba(57, 255, 20, 0.3);
+}
+
+/* Emboss for neutral (bone / acid) text. Makes copy feel pressed into
+   the wall without adding any color cast. */
+.emboss {
+  text-shadow:
+    -1px -1px 0 rgba(255, 255, 255, 0.12),
+    1px 1px 0 rgba(0, 0, 0, 0.85),
+    2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Smaller emboss for tight / small-size copy where the 2-pixel shadow
+   would look like a drop-shadow. */
+.emboss-sm {
+  text-shadow:
+    -0.5px -0.5px 0 rgba(255, 255, 255, 0.1),
+    0.5px 0.5px 0 rgba(0, 0, 0, 0.75),
+    1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .text-blur-xs {
@@ -251,9 +292,70 @@ body {
   mix-blend-mode: overlay;
 }
 
+/* ===== Graffiti layer ===== */
+
+/* Base state: near-invisible. The wall "remembers" that someone scrawled
+   here but you can't actually read it without the flashlight. */
+.graffiti-layer {
+  color: rgba(237, 234, 224, 0.035);
+  mix-blend-mode: screen;
+  transition: color 180ms ease;
+  /* Keep paint invalidation inside this layer so the mask updates driven
+     by cursor motion don't force repaints on surrounding pixels. */
+  contain: layout paint;
+}
+
+/* Figma-noise on every tag. Applied per-span so the mix-blend-mode of
+   the parent layer still works across the full composite. */
+.graffiti-tex {
+  filter: url(#grafTexture);
+  -webkit-filter: url(#grafTexture);
+}
+
+.graffiti-layer .graffiti-tag--neon {
+  color: rgba(57, 255, 20, 0.05);
+}
+
+/* Active state: cursor flashlight on. The layer is lifted to a legible
+   level, and a radial alpha mask centered on the cursor (in *document*
+   coordinates, published by CursorGlow) keeps tags hidden outside the
+   beam. */
+html[data-cursor="on"] .graffiti-layer {
+  color: rgba(237, 234, 224, 0.28);
+  -webkit-mask-image: radial-gradient(
+    circle 240px at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  mask-image: radial-gradient(
+    circle 240px at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+  will-change: mask-image;
+}
+
+html[data-cursor="on"] .graffiti-layer .graffiti-tag--neon {
+  color: rgba(57, 255, 20, 0.32);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .flicker,
   .grain-anim {
     animation: none !important;
+  }
+
+  /* Skip the moving mask for users who've opted out of motion: they just
+     see the ambient faded-graffiti layer. */
+  html[data-cursor="on"] .graffiti-layer {
+    -webkit-mask-image: none;
+    mask-image: none;
+    color: rgba(237, 234, 224, 0.06);
+  }
+
+  html[data-cursor="on"] .graffiti-layer .graffiti-tag--neon {
+    color: rgba(57, 255, 20, 0.08);
   }
 }
