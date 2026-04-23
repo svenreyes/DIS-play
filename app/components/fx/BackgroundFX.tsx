@@ -75,6 +75,20 @@ export default function BackgroundFX() {
         }}
       />
 
+      {/* 4.5 CRT pass — global scanline texture across the whole page.
+             Kept above the wall/color layers so it's consistently visible
+             on every section, not only in the hero. */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "repeating-linear-gradient(to bottom, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 1px, rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.06) 3px)",
+          mixBlendMode: "screen",
+          opacity: 0.45,
+          animation: "scan 8s linear infinite",
+        }}
+      />
+
       {/* 5. Fine fractal noise — the dust in the air. */}
       <svg
         className="absolute inset-0 h-full w-full opacity-[0.18] mix-blend-overlay"

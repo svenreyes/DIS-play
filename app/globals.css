@@ -110,7 +110,7 @@ section {
     opacity: 1;
   }
   2% {
-    opacity: 0.93;
+    opacity: 0.9;
   }
   4% {
     opacity: 1;
@@ -119,7 +119,7 @@ section {
     opacity: 1;
   }
   21% {
-    opacity: 0.88;
+    opacity: 0.82;
   }
   23% {
     opacity: 1;
@@ -128,7 +128,7 @@ section {
     opacity: 1;
   }
   83% {
-    opacity: 0.95;
+    opacity: 0.9;
   }
   86% {
     opacity: 1;
@@ -289,7 +289,7 @@ section {
 }
 
 .flicker {
-  animation: flicker 6s infinite;
+  animation: flicker 4.5s infinite;
 }
 .grain-anim {
   animation: grainShift 1.2s steps(6) infinite;
@@ -335,13 +335,15 @@ section {
   inset: 0;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.025) 0,
-    rgba(255, 255, 255, 0.025) 1px,
-    transparent 1px,
-    transparent 3px
+    rgba(255, 255, 255, 0.08) 0,
+    rgba(255, 255, 255, 0.08) 1px,
+    rgba(0, 0, 0, 0.08) 1px,
+    rgba(0, 0, 0, 0.08) 3px
   );
   pointer-events: none;
-  mix-blend-mode: overlay;
+  mix-blend-mode: screen;
+  opacity: 1;
+  animation: scan 7s linear infinite;
 }
 
 /* ===== Graffiti layer ===== */
