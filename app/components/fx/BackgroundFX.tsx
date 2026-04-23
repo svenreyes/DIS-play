@@ -37,9 +37,12 @@ export default function BackgroundFX() {
       />
 
       {/* 2. Secondary grunge pass — flipped + enlarged + blurred so the
-             eye can never find a repeat; adds depth rather than pattern. */}
+             eye can never find a repeat; adds depth rather than pattern.
+             Hidden on small viewports via the .fx-wall-secondary class
+             because the 3px blur on a full-viewport scaled image is one
+             of the most expensive layers on low-power GPUs. */}
       <div
-        className="absolute inset-0 opacity-[0.32] mix-blend-overlay"
+        className="fx-wall-secondary absolute inset-0 opacity-[0.32] mix-blend-overlay"
         style={{
           backgroundImage: wallUrl,
           backgroundSize: "175%",
@@ -80,14 +83,20 @@ export default function BackgroundFX() {
         <rect width="100%" height="100%" fill="url(#noiseTile)" />
       </svg>
 
-      {/* 6. Animated fine grain — keeps the wall feeling alive. */}
-      <div className="absolute inset-0 noise-soft grain-anim opacity-[0.09] mix-blend-soft-light" />
+      {/* 6. Animated fine grain — keeps the wall feeling alive.
+             .fx-grain class lets mobile CSS hide it: the 1.2s stepped
+             transform animation forces continuous repaints, and the
+             grain is imperceptible at mobile pixel densities. */}
+      <div className="fx-grain absolute inset-0 noise-soft grain-anim opacity-[0.09] mix-blend-soft-light" />
 
-      {/* 7. Large scratches — light, additive, adds "been lived on" wear. */}
-      <div className="scratch-overlay absolute inset-0 opacity-30" />
+      {/* 7. Large scratches — light, additive, adds "been lived on" wear.
+             .fx-scratch class lets mobile CSS drop this; the inline
+             data-URI SVG uses a 1200×800 feTurbulence filter which is
+             CPU-heavy on phones. */}
+      <div className="fx-scratch scratch-overlay absolute inset-0 opacity-30" />
 
       {/* 8. Flicker — very subtle, gives the wall a bad-ballast lamp feel. */}
-      <div className="absolute inset-0 flicker" />
+      <div className="fx-flicker absolute inset-0 flicker" />
 
       {/* 9. Vignette — focuses attention and darkens edges. */}
       <div

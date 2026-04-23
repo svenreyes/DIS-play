@@ -54,6 +54,49 @@ p {
   font-size: 1.0625rem;
 }
 
+/* ===== Mobile / touch performance gates =====
+   The decorative layers (animated grain, turbulence scratches, secondary
+   blurred wall pass, flicker, and the cursor-revealed graffiti) are
+   expensive on low-power GPUs and contribute almost nothing visually on
+   small screens — the grain is invisible at mobile pixel densities, the
+   graffiti is never revealed because touch devices have no cursor
+   flashlight. Disabling them on touch / narrow viewports keeps the look
+   identical on desktop but removes the bulk of per-frame paint work on
+   mobile. */
+
+/* No hover = touch device. The flashlight mask in CursorGlow never lights
+   up, so every graffiti span stays near-invisible anyway. Skipping paint
+   avoids dozens of SVG `filter: url(#grafTexture)` evaluations. */
+@media (hover: none) {
+  .graffiti-layer {
+    display: none !important;
+  }
+}
+
+/* On narrow viewports, strip the most expensive decorative overlays.
+   The base wall, color wash, and vignette layers remain so the page
+   still looks like a concrete wall — you just save the animated grain,
+   scaled/blurred secondary pass, flicker, and the giant SVG turbulence
+   scratches. */
+@media (max-width: 768px) {
+  .fx-grain,
+  .fx-scratch,
+  .fx-wall-secondary,
+  .fx-flicker {
+    display: none !important;
+  }
+}
+
+/* Skip paint work on sections that are far off-screen. Browsers will
+   still reserve the laid-out height, so scroll position is stable, but
+   nothing inside is rasterized until the section approaches the
+   viewport. Safe because every section already manages its own intro
+   animations (framer-motion whileInView). */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 ::selection {
   background: var(--color-neon);
   color: #000;

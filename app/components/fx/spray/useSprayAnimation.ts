@@ -40,7 +40,15 @@ export function useSprayAnimation(
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const scale = Math.min(window.devicePixelRatio || 1, dpr);
+    // On small / touch viewports, cap the canvas pixel ratio at 1.0. The
+    // spray strokes are low-frequency abstract shapes so the difference
+    // between 1.0× and 1.5× dpr is imperceptible on a 5–6" screen, but it
+    // cuts canvas pixel count (and per-frame draw cost) by ~55%.
+    const isSmallViewport =
+      window.matchMedia("(max-width: 768px)").matches ||
+      window.matchMedia("(hover: none)").matches;
+    const effectiveDpr = isSmallViewport ? Math.min(dpr, 1) : dpr;
+    const scale = Math.min(window.devicePixelRatio || 1, effectiveDpr);
 
     const sizeCanvas = () => {
       const parent = canvas.parentElement;
