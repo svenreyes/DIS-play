@@ -70,7 +70,7 @@ export default function Tracks() {
       <div className="mb-16 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
         <Reveal>
           <div className="flex items-center gap-4">
-            <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(57,255,20,0.9)" }} />
+            <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
             <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
               // Tracks
             </span>
@@ -173,7 +173,7 @@ function TrackCard({
           <span
             aria-hidden
             className="h-px w-16 bg-neon transition-all duration-300 group-hover:w-28"
-            style={{ boxShadow: "0 0 10px rgba(57,255,20,0.8)" }}
+            style={{ boxShadow: "0 0 10px rgba(92,205,15,0.8)" }}
           />
         </div>
 
@@ -183,7 +183,7 @@ function TrackCard({
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(circle at 30% 80%, rgba(57,255,20,0.15) 0%, transparent 50%)",
+                "radial-gradient(circle at 30% 80%, rgba(92,205,15,0.15) 0%, transparent 50%)",
             }}
           />
         </div>

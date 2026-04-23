@@ -99,18 +99,18 @@ export default function SvgDefs() {
         </filter>
 
         <linearGradient id="sprayGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#39ff14" stopOpacity="0" />
-          <stop offset="8%" stopColor="#39ff14" stopOpacity="0.7" />
-          <stop offset="50%" stopColor="#7dff58" stopOpacity="1" />
-          <stop offset="92%" stopColor="#39ff14" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#39ff14" stopOpacity="0" />
+          <stop offset="0%" stopColor="#5ccd0f" stopOpacity="0" />
+          <stop offset="8%" stopColor="#5ccd0f" stopOpacity="0.7" />
+          <stop offset="50%" stopColor="#5ccd0f" stopOpacity="1" />
+          <stop offset="92%" stopColor="#5ccd0f" stopOpacity="0.7" />
+          <stop offset="100%" stopColor="#5ccd0f" stopOpacity="0" />
         </linearGradient>
 
         <linearGradient id="sprayVertical" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#39ff14" stopOpacity="0" />
-          <stop offset="15%" stopColor="#39ff14" stopOpacity="0.8" />
-          <stop offset="85%" stopColor="#7dff58" stopOpacity="1" />
-          <stop offset="100%" stopColor="#39ff14" stopOpacity="0" />
+          <stop offset="0%" stopColor="#5ccd0f" stopOpacity="0" />
+          <stop offset="15%" stopColor="#5ccd0f" stopOpacity="0.8" />
+          <stop offset="85%" stopColor="#5ccd0f" stopOpacity="1" />
+          <stop offset="100%" stopColor="#5ccd0f" stopOpacity="0" />
         </linearGradient>
 
         <pattern id="noiseTile" x="0" y="0" width="220" height="220" patternUnits="userSpaceOnUse">

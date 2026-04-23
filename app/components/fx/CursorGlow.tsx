@@ -107,7 +107,7 @@ export default function CursorGlow() {
           className="h-[440px] w-[440px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(57,255,20,0.14) 0%, rgba(57,255,20,0.06) 32%, rgba(57,255,20,0.02) 55%, transparent 72%)",
+              "radial-gradient(circle, rgba(92,205,15,0.14) 0%, rgba(92,205,15,0.06) 32%, rgba(92,205,15,0.02) 55%, transparent 72%)",
             mixBlendMode: "screen",
             filter: "blur(14px)",
           }}
@@ -124,7 +124,7 @@ export default function CursorGlow() {
           className="h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
             background:
-              "radial-gradient(circle, rgba(125,255,88,0.26) 0%, rgba(57,255,20,0.12) 40%, transparent 70%)",
+              "radial-gradient(circle, rgba(130,220,80,0.26) 0%, rgba(92,205,15,0.12) 40%, transparent 70%)",
             mixBlendMode: "screen",
             filter: "blur(8px)",
           }}

@@ -63,7 +63,7 @@ export default function Hero() {
           zIndex: -1,
           background:
             "radial-gradient(ellipse 55% 42% at 50% 52%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.22) 45%, transparent 75%)," +
-            "radial-gradient(ellipse 45% 30% at 50% 48%, rgba(57,255,20,0.12) 0%, rgba(57,255,20,0.04) 45%, transparent 75%)",
+            "radial-gradient(ellipse 45% 30% at 50% 48%, rgba(92,205,15,0.12) 0%, rgba(92,205,15,0.04) 45%, transparent 75%)",
         }}
       />
 
@@ -85,7 +85,7 @@ export default function Hero() {
           />
         </div>
 
-        <TagStamp rotate={-2} size="lg" variant="acid" className="chalk shadow-[0_0_0_1px_rgba(214,194,58,0.3)]">
+        <TagStamp rotate={-2} size="lg" variant="acid" className="chalk shadow-[0_0_0_1px_rgba(200,179,28,0.3)]">
           Creative Tech Summit
         </TagStamp>
       </motion.div>
@@ -192,7 +192,7 @@ function Dot() {
     <span
       aria-hidden
       className="inline-block h-2 w-2 bg-neon"
-      style={{ boxShadow: "0 0 8px rgba(57,255,20,0.9)" }}
+      style={{ boxShadow: "0 0 8px rgba(92,205,15,0.9)" }}
     />
   );
 }
@@ -213,7 +213,7 @@ function AgendaButton({ reduced }: { reduced: boolean | null }) {
       className="group relative inline-flex items-center gap-3 border-2 border-neon bg-ink/70 px-7 py-4 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.22em] text-neon backdrop-blur-[2px] md:text-base"
       style={{
         boxShadow:
-          "0 0 0 1px rgba(57,255,20,0.22), 0 0 22px rgba(57,255,20,0.3), inset 0 0 0 1px rgba(57,255,20,0.15)",
+          "0 0 0 1px rgba(92,205,15,0.22), 0 0 22px rgba(92,205,15,0.3), inset 0 0 0 1px rgba(92,205,15,0.15)",
       }}
       aria-label="Jump to the schedule"
     >

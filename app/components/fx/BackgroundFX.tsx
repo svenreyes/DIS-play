@@ -66,9 +66,9 @@ export default function BackgroundFX() {
         className="absolute inset-0 opacity-[0.22]"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 70% 55% at 15% 20%, rgba(57,255,20,0.14) 0%, transparent 55%)," +
+            "radial-gradient(ellipse 70% 55% at 15% 20%, rgba(92,205,15,0.14) 0%, transparent 55%)," +
             "radial-gradient(ellipse 60% 50% at 85% 80%, rgba(166,67,35,0.12) 0%, transparent 55%)," +
-            "radial-gradient(ellipse 40% 35% at 70% 15%, rgba(214,194,58,0.08) 0%, transparent 55%)",
+            "radial-gradient(ellipse 40% 35% at 70% 15%, rgba(200,179,28,0.08) 0%, transparent 55%)",
         }}
       />
 
