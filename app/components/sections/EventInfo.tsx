@@ -80,11 +80,11 @@ const strokes: SprayStroke[] = [
 export default function EventInfo() {
   return (
     <section className="relative isolate overflow-hidden px-6 py-28 md:px-12 md:py-40">
-      <SprayLayer strokes={strokes} />
+      <SprayLayer strokes={strokes} color={{ r: 200, g: 179, b: 28 }} />
 
       <Reveal>
         <div className="mb-12 flex items-center gap-4">
-          <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(57,255,20,0.9)" }} />
+          <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
           <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
             // Event Info
           </span>

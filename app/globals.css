@@ -3,11 +3,11 @@
 @theme {
   --color-ink: #0a0a0a;
   --color-ink-2: #121212;
-  --color-neon: #39ff14;
-  --color-neon-soft: #7dff58;
-  --color-acid: #d6c23a;
-  --color-bone: #edeae0;
-  --color-rust: #a64323;
+  --color-neon: #5ccd0f;
+  --color-neon-soft: #5ccd0f;
+  --color-acid: #c8b31c;
+  --color-bone: #cecece;
+  --color-rust: #f64624;
 
   --font-display: var(--font-display), "Impact", "Arial Narrow", sans-serif;
   --font-venom: var(--font-venom), "Brush Script MT", cursive;
@@ -18,7 +18,7 @@
 
 :root {
   color-scheme: dark;
-  --tap-neon: 57 255 20;
+  --tap-neon: 92 205 15;
 }
 
 html {
@@ -48,6 +48,10 @@ body {
 body {
   position: relative;
   min-height: 100svh;
+}
+
+p {
+  font-size: 1.0625rem;
 }
 
 ::selection {
@@ -146,10 +150,10 @@ body {
 @keyframes glowPulse {
   0%,
   100% {
-    filter: drop-shadow(0 0 14px rgba(57, 255, 20, 0.65)) drop-shadow(0 0 36px rgba(57, 255, 20, 0.35));
+    filter: drop-shadow(0 0 14px rgba(92, 205, 15, 0.65)) drop-shadow(0 0 36px rgba(92, 205, 15, 0.35));
   }
   50% {
-    filter: drop-shadow(0 0 22px rgba(57, 255, 20, 0.9)) drop-shadow(0 0 56px rgba(57, 255, 20, 0.5));
+    filter: drop-shadow(0 0 22px rgba(92, 205, 15, 0.9)) drop-shadow(0 0 56px rgba(92, 205, 15, 0.5));
   }
 }
 
@@ -166,10 +170,10 @@ body {
     1px 1px 0 rgba(0, 0, 0, 0.8),
     2px 2px 3px rgba(0, 0, 0, 0.55),
     /* neon glow */
-    0 0 4px rgba(57, 255, 20, 0.9),
-    0 0 14px rgba(57, 255, 20, 0.75),
-    0 0 36px rgba(57, 255, 20, 0.45),
-    0 0 72px rgba(57, 255, 20, 0.3);
+    0 0 4px rgba(92, 205, 15, 0.9),
+    0 0 14px rgba(92, 205, 15, 0.75),
+    0 0 36px rgba(92, 205, 15, 0.45),
+    0 0 72px rgba(92, 205, 15, 0.3);
 }
 
 .glow-neon-soft {
@@ -179,8 +183,8 @@ body {
     1px 1px 0 rgba(0, 0, 0, 0.7),
     2px 2px 2px rgba(0, 0, 0, 0.5),
     /* glow */
-    0 0 6px rgba(57, 255, 20, 0.5),
-    0 0 18px rgba(57, 255, 20, 0.3);
+    0 0 6px rgba(92, 205, 15, 0.5),
+    0 0 18px rgba(92, 205, 15, 0.3);
 }
 
 /* Emboss for neutral (bone / acid) text. Makes copy feel pressed into
@@ -259,15 +263,15 @@ body {
   font-size: 0.9rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(214, 194, 58, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(214, 194, 58, 0.08);
+  background: rgba(200, 179, 28, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(200, 179, 28, 0.08);
 }
 
 .tag-stamp--neon {
   border-color: var(--color-neon);
   color: var(--color-neon);
-  background: rgba(57, 255, 20, 0.04);
-  text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+  background: rgba(92, 205, 15, 0.04);
+  text-shadow: 0 0 8px rgba(92, 205, 15, 0.5);
 }
 
 .divider-dashed {
@@ -302,7 +306,7 @@ body {
 /* Base state: near-invisible. The wall "remembers" that someone scrawled
    here but you can't actually read it without the flashlight. */
 .graffiti-layer {
-  color: rgba(237, 234, 224, 0.035);
+  color: rgba(206, 206, 206, 0.035);
   mix-blend-mode: screen;
   transition: color 180ms ease;
   /* Keep paint invalidation inside this layer so the mask updates driven
@@ -318,7 +322,7 @@ body {
 }
 
 .graffiti-layer .graffiti-tag--neon {
-  color: rgba(57, 255, 20, 0.05);
+  color: rgba(92, 205, 15, 0.05);
 }
 
 /* Active state: cursor flashlight on. The layer is lifted to a legible
@@ -326,7 +330,7 @@ body {
    coordinates, published by CursorGlow) keeps tags hidden outside the
    beam. */
 html[data-cursor="on"] .graffiti-layer {
-  color: rgba(237, 234, 224, 0.28);
+  color: rgba(206, 206, 206, 0.28);
   -webkit-mask-image: radial-gradient(
     circle 240px at var(--mx, 50%) var(--my, 50%),
     rgba(0, 0, 0, 1) 0%,
@@ -343,7 +347,7 @@ html[data-cursor="on"] .graffiti-layer {
 }
 
 html[data-cursor="on"] .graffiti-layer .graffiti-tag--neon {
-  color: rgba(57, 255, 20, 0.32);
+  color: rgba(92, 205, 15, 0.32);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -357,10 +361,10 @@ html[data-cursor="on"] .graffiti-layer .graffiti-tag--neon {
   html[data-cursor="on"] .graffiti-layer {
     -webkit-mask-image: none;
     mask-image: none;
-    color: rgba(237, 234, 224, 0.06);
+    color: rgba(206, 206, 206, 0.06);
   }
 
   html[data-cursor="on"] .graffiti-layer .graffiti-tag--neon {
-    color: rgba(57, 255, 20, 0.08);
+    color: rgba(92, 205, 15, 0.08);
   }
 }

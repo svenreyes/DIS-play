@@ -37,12 +37,12 @@ const strokes: SprayStroke[] = [
 export default function GetInvolved() {
   return (
     <section className="relative isolate overflow-hidden px-6 py-28 md:px-12 md:py-40">
-      <SprayLayer strokes={strokes} />
+      <SprayLayer strokes={strokes} color={{ r: 246, g: 70, b: 36 }} />
 
       <div className="mb-14 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
         <Reveal>
           <div className="flex items-center gap-4">
-            <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(57,255,20,0.9)" }} />
+            <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
             <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
               // Get Involved
             </span>
@@ -153,7 +153,7 @@ function RoleCard({
               <span
                 aria-hidden
                 className="mt-[0.45rem] inline-block h-1 w-1 shrink-0 bg-acid"
-                style={{ boxShadow: "0 0 6px rgba(214,194,58,0.6)" }}
+                style={{ boxShadow: "0 0 6px rgba(200,179,28,0.6)" }}
               />
               <span>{m}</span>
             </li>
@@ -190,7 +190,7 @@ function MailCTA({ email }: { email: string }) {
     <motion.a
       href={`mailto:${email}`}
       className="group relative inline-flex items-center gap-3 border-2 border-neon bg-ink px-6 py-4 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.18em] text-neon glow-neon-soft md:text-base"
-      style={{ boxShadow: "0 0 0 1px rgba(57,255,20,0.25), 0 0 28px rgba(57,255,20,0.25)" }}
+      style={{ boxShadow: "0 0 0 1px rgba(92,205,15,0.25), 0 0 28px rgba(92,205,15,0.25)" }}
       whileHover={reduced ? undefined : { rotate: -1.5, scale: 1.03 }}
       transition={{ duration: 0.2 }}
     >

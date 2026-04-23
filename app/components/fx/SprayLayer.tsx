@@ -6,7 +6,7 @@ import type { SprayLayerProps, SprayStroke } from "./spray/types";
 
 export type { SprayStroke };
 
-const DEFAULT_SPRAY_COLOR = { r: 57, g: 255, b: 20 };
+const DEFAULT_SPRAY_COLOR = { r: 92, g: 205, b: 15 };
 
 // Canvas shell for the dripping spray animation used behind each section.
 export default function SprayLayer({
@@ -29,7 +29,7 @@ export default function SprayLayer({
       style={{
         opacity: 0.95,
         mixBlendMode: "screen",
-        filter: "drop-shadow(0 0 10px rgba(57,255,20,0.4))",
+        filter: `drop-shadow(0 0 10px rgba(${color.r},${color.g},${color.b},0.4))`,
         zIndex: -1,
       }}
     />

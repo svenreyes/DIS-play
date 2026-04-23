@@ -39,7 +39,7 @@ const bodyLight = localFont({
 export const metadata: Metadata = {
   title: "DIS:PLAY — Creative Tech Summit at Cornell Tech",
   description:
-    "Disrupt the display. Play with the rules. An experimental creative tech summit at Cornell Tech. May 13th · 12PM–6PM · 2 West Loop Rd, New York, NY.",
+    "Disrupt the display. Play with the rules. An experimental creative tech summit at Cornell Tech. May 13th · 12PM–7PM · 2 West Loop Rd, New York, NY.",
   openGraph: {
     title: "DIS:PLAY — Creative Tech Summit",
     description: "Breaking the frame. Raw, unfinished, experimental work.",

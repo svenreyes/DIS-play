@@ -20,7 +20,7 @@ export type Role = {
 export const event = {
   date: "May 13th",
   year: "2026",
-  time: "12PM – 6PM",
+  time: "12PM – 7PM",
   venue: "Cornell Tech",
   address: "2 West Loop Rd, New York, NY 10044",
   email: "yc2699@cornell.edu",
@@ -29,53 +29,63 @@ export const event = {
 
 export const schedule: ScheduleItem[] = [
   {
-    time: "12:00",
-    title: "Networking",
-    description: "Arrive, grab a drink, meet the other disruptors.",
+    time: "12:00 – 12:45 PM",
+    title: "Creative Studio Networking",
+    description: "Meet creatives in the industry and creative studios in New York.",
   },
   {
-    time: "12:30",
+    time: "1:00 – 1:15 PM",
     title: "Opening Remarks",
-    description: "What is DIS:PLAY, and why break the frame?",
+    description: "Welcome, pillar intro, theme manifesto.",
   },
   {
-    time: "1:00",
+    time: "1:15 – 2:00 PM",
     title: "Fashion × Tech",
-    description: "Garments as interfaces. Runway meets runtime.",
+    description: "Workshop.",
   },
   {
-    time: "1:45",
+    time: "1:15 – 2:00 PM",
     title: "Music × Tech",
-    description: "Sound design in the age of synthesizers you talk to.",
+    description: "Workshop.",
   },
   {
-    time: "2:30",
+    time: "2:15 – 3:00 PM",
     title: "Design × Tech",
-    description: "Rough edges, wrong fonts, right questions.",
+    description: "Workshop.",
   },
   {
-    time: "3:15",
+    time: "2:15 – 3:00 PM",
     title: "Film × Tech",
-    description: "Moving images, generative frames, new grammars.",
+    description: "Workshop.",
   },
   {
-    time: "4:00",
+    time: "3:15 – 3:45 PM",
     title: "Panel Talk",
     description: "Cross-discipline artists argue about the future.",
   },
   {
-    time: "4:45",
-    title: "Work-in-Progress Demos",
+    time: "3:45 – 4:15 PM",
+    title: "Work-in-Progress Celebration",
     description: "Unfinished. Unpolished. On purpose.",
   },
   {
-    time: "5:15",
-    title: "Startup Demos",
-    description: "Rapid-fire pitches from creative tech founders.",
+    time: "4:25 – 5:25 PM",
+    title: "Creative Startup Demos",
+    description: "Rapid-fire demo on anything × 4 min each.",
   },
   {
-    time: "5:45",
-    title: "Keynotes",
+    time: "5:30 – 5:50 PM",
+    title: "Keynote Session 1",
+    description: "Closing signals from voices we trust.",
+  },
+  {
+    time: "5:55 – 6:15 PM",
+    title: "Keynote Session 2",
+    description: "Closing signals from voices we trust.",
+  },
+  {
+    time: "6:15 – 6:35 PM",
+    title: "Keynote Session 3",
     description: "Closing signals from voices we trust.",
   },
 ];
