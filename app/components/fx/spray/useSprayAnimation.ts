@@ -102,12 +102,18 @@ export function useSprayAnimation(
 
     const drawer = Drawer(canvas);
     const plans = makePlan();
-    const baseSize = Math.max(3, 5 * scale);
+    // Scale down the spray footprint on small viewports. Without this, a
+    // ~37px splatter radius that looks proportional at 1440px wide
+    // (~2.5% of screen) becomes ~10% of a 375px phone and reads as a
+    // thick blob rather than a streak. Shrinking both size and radius
+    // keeps the stroke readable at mobile widths.
+    const mobileScale = isSmallViewport ? 0.55 : 1;
+    const baseSize = Math.max(3, 5 * scale * mobileScale);
 
     for (const plan of plans) {
       const speedBoost = Math.min(2.2, 28 / Math.max(8, plan.stepInterval));
       const splatterAmount = Math.round(
-        Math.min(140, 32 * speedBoost * plan.thickness + 18),
+        Math.min(140, (32 * speedBoost * plan.thickness + 18) * mobileScale),
       );
 
       plan.sprayRef = Spray({
@@ -115,7 +121,10 @@ export function useSprayAnimation(
         color: plan.color,
         size: Math.max(2, baseSize * plan.thickness),
         splatterAmount,
-        splatterRadius: Math.max(14, 34 * scale * plan.thickness),
+        splatterRadius: Math.max(
+          8,
+          34 * scale * plan.thickness * mobileScale,
+        ),
         dripper: true,
         dripThreshold: 38,
         dripSpeed: 5,

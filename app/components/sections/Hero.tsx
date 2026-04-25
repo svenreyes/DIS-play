@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import TagStamp from "../ui/TagStamp";
 import { event, tracks } from "@/app/data/siteContent";
@@ -37,20 +37,36 @@ const heroStrokes: SprayStroke[] = [
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  // Mobile devices struggle with the 4-way scroll-linked parallax (two
+  // translate axes + opacity recomputed every scroll frame composite
+  // against the global CRT + wall layers). We disable the parallax on
+  // narrow viewports so scrolling stays buttery. Desktop keeps the full
+  // cinematic exit animation.
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 768px)");
+    const apply = () => setIsMobile(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  const disableParallax = reduced || isMobile;
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const yFar = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -80]);
-  const yMid = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -160]);
-  const yNear = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -240]);
-  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0.2]);
+  const yFar = useTransform(scrollYProgress, [0, 1], [0, disableParallax ? 0 : -80]);
+  const yMid = useTransform(scrollYProgress, [0, 1], [0, disableParallax ? 0 : -160]);
+  const yNear = useTransform(scrollYProgress, [0, 1], [0, disableParallax ? 0 : -240]);
+  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, disableParallax ? 1 : 0.2]);
 
   return (
     <section
       ref={ref}
-      className="scanlines relative isolate flex min-h-[100svh] flex-col overflow-hidden px-6 pt-6 md:px-12 md:pt-10"
+      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden px-6 pt-6 md:px-12 md:pt-10"
     >
       {/* Hero backplate: a soft dark oval + neon halo pinned behind the
           title so the wall reads as a stage-lit surface instead of just a
