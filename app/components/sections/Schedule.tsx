@@ -107,7 +107,7 @@ export default function Schedule() {
                   delay: slotIndex * 0.06,
                   ease: [0.2, 0.8, 0.2, 1],
                 }}
-                className="group relative grid grid-cols-[auto_1fr] items-baseline gap-4 border-b border-dashed border-bone/15 py-5 md:grid-cols-[13rem_1fr] md:gap-6 md:py-6"
+                className="group relative grid grid-cols-1 items-baseline gap-2 border-b border-dashed border-bone/15 py-5 md:grid-cols-[13rem_1fr] md:gap-6 md:py-6"
               >
                 <div className="flex items-baseline gap-3">
                   <span className="whitespace-nowrap font-[family-name:var(--font-display)] text-2xl leading-none tracking-[-0.02em] text-neon glow-neon-soft md:text-3xl">
@@ -136,9 +136,28 @@ export default function Schedule() {
                             [ {String(globalIndex + 1).padStart(2, "0")} / {totalItems} ]
                           </span>
                         </div>
-                        <p className="mt-1.5 max-w-xl font-[family-name:var(--font-body-light)] text-sm leading-relaxed text-bone/65">
+                        <p className="emboss-sm mt-1.5 max-w-xl font-[family-name:var(--font-body-light)] text-sm leading-relaxed text-bone/65">
                           {item.description}
                         </p>
+                        {item.speakers && item.speakers.length > 0 ? (
+                          <ul className="mt-3 max-w-xl space-y-1 font-[family-name:var(--font-body-light)] text-[0.85rem] leading-snug">
+                            {item.speakers.map((speaker) => (
+                              <li
+                                key={speaker.name}
+                                className="flex flex-wrap items-baseline gap-x-2"
+                              >
+                                <span className="font-[family-name:var(--font-body-bold)] uppercase tracking-[0.02em] text-acid">
+                                  {speaker.name}
+                                </span>
+                                {speaker.role ? (
+                                  <span className="emboss-sm text-bone/55">
+                                    — {speaker.role}
+                                  </span>
+                                ) : null}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
                       </div>
                     );
                   })}

@@ -101,7 +101,12 @@ export default function Hero() {
           />
         </div>
 
-        <TagStamp rotate={-2} size="lg" variant="acid" className="chalk shadow-[0_0_0_1px_rgba(200,179,28,0.3)]">
+        <TagStamp
+          rotate={-2}
+          size="sm"
+          variant="acid"
+          className="chalk self-start shadow-[0_0_0_1px_rgba(200,179,28,0.3)] md:!text-base md:!px-4 md:!py-2"
+        >
           Creative Tech Summit
         </TagStamp>
       </motion.div>
@@ -119,7 +124,7 @@ export default function Hero() {
             style={{ y: yFar }}
           >
             <span
-              className="chalk glow-neon inline-block select-none whitespace-nowrap font-[family-name:var(--font-venom)] text-[19vw] leading-[0.85] text-neon md:text-[14vw]"
+              className="chalk glow-neon inline-block select-none whitespace-nowrap font-[family-name:var(--font-venom)] text-[26vw] leading-[0.85] text-neon md:text-[14vw]"
               style={{ filter: "blur(0.8px)", transform: "rotate(-5deg)" }}
             >
               DIS:
@@ -158,7 +163,7 @@ export default function Hero() {
             animate={reduced ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1], delay: 0.3 }}
           >
-            <span className="chalk glow-neon block text-[26vw] tracking-[-0.04em] text-neon md:text-[19vw]">
+            <span className="chalk glow-neon block text-[36vw] tracking-[-0.04em] text-neon md:text-[19vw]">
               PLAY
             </span>
           </motion.h1>

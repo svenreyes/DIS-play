@@ -1,8 +1,14 @@
 // Central event copy shared across the landing page sections.
+export type Speaker = {
+  name: string;
+  role?: string;
+};
+
 export type ScheduleItem = {
   time: string;
   title: string;
   description: string;
+  speakers?: Speaker[];
 };
 
 export type Track = {
@@ -31,7 +37,9 @@ export const schedule: ScheduleItem[] = [
   {
     time: "12:00 – 12:45 PM",
     title: "Creative Studio Networking",
-    description: "Meet creatives in the industry and creative studios in New York.",
+    description:
+      "Meet creatives in the industry and creative studios across New York. Studios join for in-event portfolio reviews.",
+    speakers: [{ name: "Bart Baker-Jaillet", role: "SavoirFaire" }],
   },
   {
     time: "1:00 – 1:15 PM",
@@ -41,52 +49,93 @@ export const schedule: ScheduleItem[] = [
   {
     time: "1:15 – 2:00 PM",
     title: "Fashion × Tech",
-    description: "Workshop.",
+    description: "45-minute workshop led by an invited guest from the pillar.",
+    speakers: [
+      { name: "Sasha Zabegalin", role: "Deployed Creative, FLORA" },
+    ],
+  },
+  {
+    time: "1:15 – 2:00 PM",
+    title: "Design × Tech",
+    description: "45-minute workshop led by an invited guest from the pillar.",
+    speakers: [
+      { name: "Louis Moncouyoux", role: "Co-founder, SavoirFaire" },
+    ],
   },
   {
     time: "1:15 – 2:00 PM",
     title: "Music × Tech",
-    description: "Workshop.",
+    description: "45-minute workshop led by an invited guest from the pillar.",
   },
   {
-    time: "2:15 – 3:00 PM",
-    title: "Design × Tech",
-    description: "Workshop.",
-  },
-  {
-    time: "2:15 – 3:00 PM",
+    time: "1:15 – 2:00 PM",
     title: "Film × Tech",
-    description: "Workshop.",
+    description: "45-minute workshop led by an invited guest from the pillar.",
+  },
+  {
+    time: "2:15 – 3:00 PM",
+    title: "Fireside Chat: Creative Careers, Unfiltered",
+    description:
+      "An interactive Q&A with creative professionals across disciplines. Listen to their authentic career journeys.",
+    speakers: [
+      { name: "Limber Zhang", role: "Art Director, MINDS + ASSEMBLY" },
+      { name: "Nuran Chen", role: "Product Designer, The New York Times" },
+      { name: "Day Chase", role: "Brand Designer" },
+      { name: "Jinu Kang", role: "Product Designer, PayPal" },
+      { name: "Kailey Kielle", role: "Audio Engineer" },
+      { name: "Yi Chen" },
+    ],
   },
   {
     time: "3:15 – 3:45 PM",
-    title: "Panel Talk",
-    description: "Cross-discipline artists argue about the future.",
+    title: "Panel Talk: The Future of Creative × Tech",
+    description: "Cross-discipline artists argue about where this is all going.",
+    speakers: [
+      { name: "William Leon", role: "Moderator / Panelist" },
+      { name: "Britney", role: "Panelist" },
+    ],
   },
   {
     time: "3:45 – 4:15 PM",
-    title: "Work-in-Progress Celebration",
-    description: "Unfinished. Unpolished. On purpose.",
+    title: "Rapid Fire Demo",
+    description:
+      "4 minutes to showcase a project — anything goes. Open sign-up, plus walk-up slots day-of.",
   },
   {
-    time: "4:25 – 5:25 PM",
-    title: "Creative Startup Demos",
-    description: "Rapid-fire demo on anything × 4 min each.",
+    time: "4:25 – 4:45 PM",
+    title: "Creative Startup Demo",
+    description: "A more polished 20-minute demo from a newly launched startup.",
+    speakers: [{ name: "Timothy Wang", role: "Co-founder, Ponder" }],
   },
   {
-    time: "5:30 – 5:50 PM",
-    title: "Keynote Session 1",
-    description: "Closing signals from voices we trust.",
+    time: "4:45 – 5:00 PM",
+    title: "Break",
+    description: "Stretch, snack, swap notes.",
   },
   {
-    time: "5:55 – 6:15 PM",
-    title: "Keynote Session 2",
-    description: "Closing signals from voices we trust.",
+    time: "5:00 – 5:40 PM",
+    title: "Music × Tech Panel: The Future of Music Tech",
+    description:
+      "A conversation at the intersection of music and tech — how AI and new tools are changing how music is made, performed, and experienced.",
+    speakers: [
+      { name: "Soumya", role: "Moderator" },
+      { name: "Juliette Rolnick", role: "Eleven Labs" },
+      { name: "Polina Ivko", role: "Product Marketing Manager, Spotify" },
+    ],
   },
   {
-    time: "6:15 – 6:35 PM",
-    title: "Keynote Session 3",
-    description: "Closing signals from voices we trust.",
+    time: "5:45 – 6:05 PM",
+    title: "Keynote 1: Branding for Creative",
+    description: "Tangible business skills for making it in the industry.",
+    speakers: [
+      { name: "Rei Inamoto", role: "Author, Professor, Founding Member" },
+    ],
+  },
+  {
+    time: "6:05 – 6:25 PM",
+    title: "Keynote 2: It Looks Good… But We Have to Sell",
+    description: "Building a business and sales techniques for creatives.",
+    speakers: [{ name: "Khurram Kalimi", role: "Author, CEO" }],
   },
 ];
 

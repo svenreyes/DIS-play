@@ -87,15 +87,13 @@ p {
   }
 }
 
-/* Skip paint work on sections that are far off-screen. Browsers will
-   still reserve the laid-out height, so scroll position is stable, but
-   nothing inside is rasterized until the section approaches the
-   viewport. Safe because every section already manages its own intro
-   animations (framer-motion whileInView). */
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
+/* NOTE: We previously had a `section { content-visibility: auto;
+   contain-intrinsic-size: auto 900px; }` rule for paint-skipping
+   offscreen sections. It triggered a WebKit regression on iOS 26.x
+   (and intermittently on 17.x) where sections never left the "skipped"
+   state, so DOM text/components stayed invisible while canvas-drawn
+   layers (the spray paint) still rendered. Removed because the perf
+   gain was small relative to the breakage on real user devices. */
 
 ::selection {
   background: var(--color-neon);
