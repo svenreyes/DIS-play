@@ -39,7 +39,9 @@ export const schedule: ScheduleItem[] = [
     title: "Creative Studio Networking",
     description:
       "Meet creatives in the industry and creative studios across New York. Studios join for in-event portfolio reviews.",
-    speakers: [{ name: "Bart Baker-Jaillet", role: "SavoirFaire" }],
+    speakers: [
+      { name: "Bart Baker-Jaillet", role: "Creative Director, SavoirFaire" },
+    ],
   },
   {
     time: "1:00 – 1:15 PM",
@@ -48,35 +50,24 @@ export const schedule: ScheduleItem[] = [
   },
   {
     time: "1:15 – 2:00 PM",
-    title: "Fashion × Tech",
-    description: "45-minute workshop led by an invited guest from the pillar.",
+    title: "Workshop: Fashion × Tech",
+    description:
+      "45-minute hands-on workshop at the intersection of fashion and technology, powered by FLORA.",
     speakers: [
       { name: "Sasha Zabegalin", role: "Deployed Creative, FLORA" },
     ],
   },
   {
-    time: "1:15 – 2:00 PM",
-    title: "Design × Tech",
-    description: "45-minute workshop led by an invited guest from the pillar.",
-    speakers: [
-      { name: "Louis Moncouyoux", role: "Co-founder, SavoirFaire" },
-    ],
-  },
-  {
-    time: "1:15 – 2:00 PM",
-    title: "Music × Tech",
-    description: "45-minute workshop led by an invited guest from the pillar.",
-  },
-  {
-    time: "1:15 – 2:00 PM",
-    title: "Film × Tech",
-    description: "45-minute workshop led by an invited guest from the pillar.",
+    time: "2:00 – 2:45 PM",
+    title: "Workshop: Film × Tech",
+    description:
+      "45-minute hands-on workshop at the intersection of film and technology, powered by KLING.",
   },
   {
     time: "2:15 – 3:00 PM",
-    title: "Fireside Chat: Creative Careers, Unfiltered",
+    title: "Fireside Chat: What Does It Take to Be a Creative?",
     description:
-      "An interactive Q&A with creative professionals across disciplines. Listen to their authentic career journeys.",
+      "An interactive Q&A with creative professionals from all walks of life — their authentic career journeys, unfiltered.",
     speakers: [
       { name: "Limber Zhang", role: "Art Director, MINDS + ASSEMBLY" },
       { name: "Nuran Chen", role: "Product Designer, The New York Times" },
@@ -87,34 +78,40 @@ export const schedule: ScheduleItem[] = [
     ],
   },
   {
-    time: "3:15 – 3:45 PM",
+    time: "3:00 – 3:45 PM",
     title: "Panel Talk: The Future of Creative × Tech",
-    description: "Cross-discipline artists argue about where this is all going.",
+    description:
+      "A panel of creative and technology leaders debate where the industry is heading.",
     speakers: [
       { name: "William Leon", role: "Moderator / Panelist" },
-      { name: "Britney", role: "Panelist" },
     ],
   },
   {
-    time: "3:45 – 4:15 PM",
-    title: "Rapid Fire Demo",
-    description:
-      "4 minutes to showcase a project — anything goes. Open sign-up, plus walk-up slots day-of.",
+    time: "3:45 – 4:00 PM",
+    title: "Break",
+    description: "Refreshments.",
   },
   {
-    time: "4:25 – 4:45 PM",
-    title: "Creative Startup Demo",
-    description: "A more polished 20-minute demo from a newly launched startup.",
+    time: "4:00 – 4:15 PM",
+    title: "Startup Talk",
+    description: "A focused demo from a creative startup.",
     speakers: [{ name: "Timothy Wang", role: "Co-founder, Ponder" }],
   },
   {
-    time: "4:45 – 5:00 PM",
-    title: "Break",
-    description: "Stretch, snack, swap notes.",
+    time: "4:15 – 4:30 PM",
+    title: "Startup Talk",
+    description: "A focused demo from a creative startup.",
+    speakers: [{ name: "Louis Moncouyoux", role: "SavoirFaire" }],
   },
   {
-    time: "5:00 – 5:40 PM",
-    title: "Music × Tech Panel: The Future of Music Tech",
+    time: "4:30 – 4:45 PM",
+    title: "Startup Talk",
+    description: "A focused demo from a creative startup.",
+    speakers: [{ name: "Infra AI" }],
+  },
+  {
+    time: "4:45 – 5:30 PM",
+    title: "Music × Tech Panel",
     description:
       "A conversation at the intersection of music and tech — how AI and new tools are changing how music is made, performed, and experienced.",
     speakers: [
@@ -124,18 +121,28 @@ export const schedule: ScheduleItem[] = [
     ],
   },
   {
-    time: "5:45 – 6:05 PM",
-    title: "Keynote 1: Branding for Creative",
+    time: "5:30 – 5:45 PM",
+    title: "Keynote: Branding for Creative",
     description: "Tangible business skills for making it in the industry.",
     speakers: [
       { name: "Rei Inamoto", role: "Author, Professor, Founding Member" },
     ],
   },
   {
-    time: "6:05 – 6:25 PM",
-    title: "Keynote 2: It Looks Good… But We Have to Sell",
+    time: "5:45 – 6:00 PM",
+    title: "Keynote: It Looks Good… But We Have to Sell",
     description: "Building a business and sales techniques for creatives.",
     speakers: [{ name: "Khurram Kalimi", role: "Author, CEO" }],
+  },
+  {
+    time: "6:00 – 6:15 PM",
+    title: "Closing",
+    description: "Wrap-up and send-off.",
+  },
+  {
+    time: "7:00 – 8:00 PM",
+    title: "After Party",
+    description: "Keep the energy going.",
   },
 ];
 

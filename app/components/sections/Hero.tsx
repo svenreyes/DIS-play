@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import TagStamp from "../ui/TagStamp";
-import { useCanHover } from "@/app/hooks/useCanHover";
 import { event, tracks } from "@/app/data/siteContent";
 
 const heroStrokes: SprayStroke[] = [
@@ -106,7 +105,7 @@ export default function Hero() {
           rotate={-2}
           size="sm"
           variant="acid"
-          className="chalk self-start shadow-[0_0_0_1px_rgba(200,179,28,0.3)] md:!text-base md:!px-4 md:!py-2"
+          className="chalk self-start !text-[0.55rem] !px-1.5 !py-0.5 shadow-[0_0_0_1px_rgba(200,179,28,0.3)] md:!text-base md:!px-4 md:!py-2"
         >
           Creative Tech Summit
         </TagStamp>
@@ -188,10 +187,6 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="flex items-center justify-center md:flex-none md:self-center">
-          <AgendaButton reduced={reduced} />
-        </div>
-
         <div className="flex flex-col items-start gap-2 text-sm font-[family-name:var(--font-body-bold)] uppercase tracking-[0.12em] text-bone md:flex-1 md:items-end md:text-right">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-neon glow-neon-soft">{event.date}</span>
@@ -218,50 +213,3 @@ function Dot() {
     />
   );
 }
-
-function AgendaButton({ reduced }: { reduced: boolean | null }) {
-  const canHover = useCanHover();
-  return (
-    <motion.a
-      href="#schedule"
-      initial={reduced ? undefined : { opacity: 0, y: 16, rotate: -4 }}
-      animate={reduced ? undefined : { opacity: 1, y: 0, rotate: -2 }}
-      transition={{ duration: 0.7, delay: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
-      whileHover={
-        canHover && !reduced ? { rotate: 1, scale: 1.04, y: -2 } : undefined
-      }
-      whileTap={reduced ? undefined : { scale: 0.97 }}
-      className="group relative inline-flex items-center gap-3 border-2 border-neon bg-ink/70 px-7 py-4 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.22em] text-neon backdrop-blur-[2px] md:text-base"
-      style={{
-        boxShadow:
-          "0 0 0 1px rgba(92,205,15,0.22), 0 0 22px rgba(92,205,15,0.3), inset 0 0 0 1px rgba(92,205,15,0.15)",
-      }}
-      aria-label="Jump to the schedule"
-    >
-      <span
-        aria-hidden
-        className={`absolute -left-1 -top-1 h-2 w-2 border-l-2 border-t-2 border-neon opacity-70 transition-opacity duration-200${canHover ? " group-hover:opacity-100" : ""}`}
-      />
-      <span
-        aria-hidden
-        className={`absolute -right-1 -bottom-1 h-2 w-2 border-b-2 border-r-2 border-neon opacity-70 transition-opacity duration-200${canHover ? " group-hover:opacity-100" : ""}`}
-      />
-      <span className="chalk glow-neon">Agenda</span>
-      <svg
-        aria-hidden
-        viewBox="0 0 24 24"
-        fill="none"
-        className={`h-4 w-4 transition-transform duration-200${canHover ? " group-hover:translate-y-0.5" : ""}`}
-      >
-        <path
-          d="M12 4v14m0 0l-5-5m5 5l5-5"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </motion.a>
-  );
-}
-
