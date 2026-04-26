@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import Reveal from "../ui/Reveal";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
+import { useCanHover } from "@/app/hooks/useCanHover";
 import { event, roles } from "@/app/data/siteContent";
 
 const rotations = [-1.2, 0.8, -0.6, 1.1, -0.9, 0.5];
@@ -116,6 +117,7 @@ function RoleCard({
   delay: number;
 }) {
   const reduced = useReducedMotion();
+  const canHover = useCanHover();
 
   return (
     <motion.article
@@ -123,8 +125,9 @@ function RoleCard({
       whileInView={reduced ? undefined : { opacity: 1, y: 0, rotate }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.7, delay, ease: [0.2, 0.8, 0.2, 1] }}
-      whileHover={reduced ? undefined : { y: -4, rotate: rotate + 0.4 }}
-      className="group relative overflow-hidden border border-bone/15 bg-ink-2/60 p-6 transition-colors duration-300 hover:border-neon/60 md:p-7"
+      whileHover={canHover && !reduced ? { y: -4, rotate: rotate + 0.4 } : undefined}
+      whileTap={!canHover && !reduced ? { y: -4, rotate: rotate + 0.4 } : undefined}
+      className={`group relative overflow-hidden border border-bone/15 bg-ink-2/60 p-6 transition-colors duration-300 md:p-7${canHover ? " hover:border-neon/60" : " active:border-neon/60"}`}
     >
       <div className="flex items-start justify-between">
         <span
@@ -176,7 +179,8 @@ function RoleCard({
           strokeLinecap="round"
           filter="url(#chalk) url(#neonGlow)"
           initial={{ pathLength: 0.15, opacity: 0.6 }}
-          whileHover={{ pathLength: 1, opacity: 1 }}
+          whileHover={canHover ? { pathLength: 1, opacity: 1 } : undefined}
+          whileTap={!canHover ? { pathLength: 1, opacity: 1 } : undefined}
           transition={{ duration: 0.6 }}
         />
       </svg>
@@ -186,12 +190,13 @@ function RoleCard({
 
 function MailCTA({ email }: { email: string }) {
   const reduced = useReducedMotion();
+  const canHover = useCanHover();
   return (
     <motion.a
       href={`mailto:${email}`}
       className="group relative inline-flex items-center gap-3 border-2 border-neon bg-ink px-6 py-4 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.18em] text-neon glow-neon-soft md:text-base"
       style={{ boxShadow: "0 0 0 1px rgba(92,205,15,0.25), 0 0 28px rgba(92,205,15,0.25)" }}
-      whileHover={reduced ? undefined : { rotate: -1.5, scale: 1.03 }}
+      whileHover={canHover && !reduced ? { rotate: -1.5, scale: 1.03 } : undefined}
       transition={{ duration: 0.2 }}
     >
       <span className="chalk">{email}</span>

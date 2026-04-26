@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import BackgroundFX from "./components/fx/BackgroundFX";
-import CursorGlow from "./components/fx/CursorGlow";
+import CursorGlowGate from "./components/fx/CursorGlowGate";
 import GraffitiBackground from "./components/fx/GraffitiBackground";
 import SvgDefs from "./components/fx/SvgDefs";
 
@@ -65,7 +65,7 @@ export default function RootLayout({
         <SvgDefs />
         <BackgroundFX />
         <GraffitiBackground />
-        <CursorGlow />
+        <CursorGlowGate />
         <main className="relative z-10">{children}</main>
       </body>
     </html>

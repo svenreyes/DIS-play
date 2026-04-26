@@ -1,6 +1,7 @@
 "use client";
 
 import { graffitiTags } from "@/app/data/graffitiTags";
+import { useCanHover } from "@/app/hooks/useCanHover";
 
 /**
  * Faded handwritten graffiti scrawled down the whole wall.
@@ -8,8 +9,14 @@ import { graffitiTags } from "@/app/data/graffitiTags";
  * The layer spans the full scrollable body. CursorGlow publishes cursor
  * coordinates to CSS variables, and globals.css uses them as a flashlight
  * mask so these tags become readable only under the beam.
+ *
+ * Not mounted on touch: no cursor flashlight, and skipping ~80 filter-heavy
+ * spans saves layout/paint on mobile.
  */
 export default function GraffitiBackground() {
+  const canHover = useCanHover();
+  if (!canHover) return null;
+
   return (
     <div
       aria-hidden

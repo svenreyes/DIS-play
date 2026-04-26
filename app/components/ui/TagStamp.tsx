@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
+import { useCanHover } from "@/app/hooks/useCanHover";
 
 type Props = {
   children: ReactNode;
@@ -29,6 +30,7 @@ export default function TagStamp({
   delay = 0,
 }: Props) {
   const reduced = useReducedMotion();
+  const canHover = useCanHover();
   const base = "tag-stamp" + (variant === "neon" ? " tag-stamp--neon" : "");
 
   if (!animated || reduced) {
@@ -53,11 +55,15 @@ export default function TagStamp({
         delay,
         ease: [0.2, 0.8, 0.2, 1],
       }}
-      whileHover={{
-        rotate: rotate + 1.5,
-        scale: 1.04,
-        transition: { duration: 0.2 },
-      }}
+      whileHover={
+        canHover && !reduced
+          ? {
+              rotate: rotate + 1.5,
+              scale: 1.04,
+              transition: { duration: 0.2 },
+            }
+          : undefined
+      }
     >
       {children}
     </motion.span>

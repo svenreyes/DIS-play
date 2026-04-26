@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import Reveal from "../ui/Reveal";
+import { useCanHover } from "@/app/hooks/useCanHover";
 import { tracks } from "@/app/data/siteContent";
 
 const strokes: SprayStroke[] = [
@@ -115,6 +116,13 @@ function TrackCard({
   delay: number;
 }) {
   const reduced = useReducedMotion();
+  const canHover = useCanHover();
+  const hoverOrTap = (hoverClasses: string, tapClasses = hoverClasses) =>
+    canHover ? hoverClasses : tapClasses;
+  const displaySizeClass =
+    index === 1
+      ? "text-[clamp(2.4rem,7.5vw,6rem)]"
+      : "text-[clamp(3rem,10vw,8rem)]";
 
   return (
     <motion.div
@@ -127,9 +135,14 @@ function TrackCard({
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, delay, ease: [0.2, 0.8, 0.2, 1] }}
       whileHover={
-        reduced
-          ? undefined
-          : { rotate: placement.rotate + 1.5, scale: placement.scale * 1.03 }
+        canHover && !reduced
+          ? { rotate: placement.rotate + 1.5, scale: placement.scale * 1.03 }
+          : undefined
+      }
+      whileTap={
+        !canHover && !reduced
+          ? { rotate: placement.rotate + 1.5, scale: placement.scale * 1.03 }
+          : undefined
       }
       className={`group relative ${placement.className}`}
     >
@@ -149,19 +162,21 @@ function TrackCard({
           {/* Glitch RGB split (purely decorative) */}
           <span
             aria-hidden
-            className="chalk-hard absolute inset-0 font-[family-name:var(--font-display)] text-[clamp(3rem,10vw,8rem)] leading-[0.8] tracking-[-0.03em] text-[#ff2bd6] mix-blend-screen opacity-0 transition-opacity duration-200 group-hover:opacity-60"
+            className={`chalk-hard absolute inset-0 font-[family-name:var(--font-display)] ${displaySizeClass} leading-[0.8] tracking-[-0.03em] text-[#ff2bd6] mix-blend-screen opacity-0 transition-opacity duration-200 ${hoverOrTap("group-hover:opacity-60", "group-active:opacity-60")}`}
             style={{ transform: "translate(-2px, 1px)" }}
           >
             {name.toUpperCase()}
           </span>
           <span
             aria-hidden
-            className="chalk-hard absolute inset-0 font-[family-name:var(--font-display)] text-[clamp(3rem,10vw,8rem)] leading-[0.8] tracking-[-0.03em] text-[#2bffe8] mix-blend-screen opacity-0 transition-opacity duration-200 group-hover:opacity-60"
+            className={`chalk-hard absolute inset-0 font-[family-name:var(--font-display)] ${displaySizeClass} leading-[0.8] tracking-[-0.03em] text-[#2bffe8] mix-blend-screen opacity-0 transition-opacity duration-200 ${hoverOrTap("group-hover:opacity-60", "group-active:opacity-60")}`}
             style={{ transform: "translate(2px, -1px)" }}
           >
             {name.toUpperCase()}
           </span>
-          <h3 className="chalk relative font-[family-name:var(--font-display)] text-[clamp(3rem,10vw,8rem)] leading-[0.8] tracking-[-0.03em] text-bone transition-colors duration-300 group-hover:text-neon group-hover:glow-neon">
+          <h3
+            className={`chalk relative font-[family-name:var(--font-display)] ${displaySizeClass} leading-[0.8] tracking-[-0.03em] text-bone transition-colors duration-300 ${hoverOrTap("group-hover:text-neon group-hover:glow-neon", "group-active:text-neon group-active:glow-neon")}`}
+          >
             {name.toUpperCase()}
           </h3>
         </div>
@@ -172,13 +187,15 @@ function TrackCard({
           </p>
           <span
             aria-hidden
-            className="h-px w-16 bg-neon transition-all duration-300 group-hover:w-28"
+            className={`h-px w-16 bg-neon transition-all duration-300 ${hoverOrTap("group-hover:w-28", "group-active:w-28")}`}
             style={{ boxShadow: "0 0 10px rgba(92,205,15,0.8)" }}
           />
         </div>
 
         {/* Hover spray flash */}
-        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div
+          className={`pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 ${hoverOrTap("group-hover:opacity-100", "group-active:opacity-100")}`}
+        >
           <div
             className="absolute inset-0"
             style={{

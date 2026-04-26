@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import TagStamp from "../ui/TagStamp";
+import { useCanHover } from "@/app/hooks/useCanHover";
 import { event, tracks } from "@/app/data/siteContent";
 
 const heroStrokes: SprayStroke[] = [
@@ -219,6 +220,7 @@ function Dot() {
 }
 
 function AgendaButton({ reduced }: { reduced: boolean | null }) {
+  const canHover = useCanHover();
   return (
     <motion.a
       href="#schedule"
@@ -226,9 +228,7 @@ function AgendaButton({ reduced }: { reduced: boolean | null }) {
       animate={reduced ? undefined : { opacity: 1, y: 0, rotate: -2 }}
       transition={{ duration: 0.7, delay: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
       whileHover={
-        reduced
-          ? undefined
-          : { rotate: 1, scale: 1.04, y: -2 }
+        canHover && !reduced ? { rotate: 1, scale: 1.04, y: -2 } : undefined
       }
       whileTap={reduced ? undefined : { scale: 0.97 }}
       className="group relative inline-flex items-center gap-3 border-2 border-neon bg-ink/70 px-7 py-4 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.22em] text-neon backdrop-blur-[2px] md:text-base"
@@ -240,18 +240,18 @@ function AgendaButton({ reduced }: { reduced: boolean | null }) {
     >
       <span
         aria-hidden
-        className="absolute -left-1 -top-1 h-2 w-2 border-l-2 border-t-2 border-neon opacity-70 transition-opacity duration-200 group-hover:opacity-100"
+        className={`absolute -left-1 -top-1 h-2 w-2 border-l-2 border-t-2 border-neon opacity-70 transition-opacity duration-200${canHover ? " group-hover:opacity-100" : ""}`}
       />
       <span
         aria-hidden
-        className="absolute -right-1 -bottom-1 h-2 w-2 border-b-2 border-r-2 border-neon opacity-70 transition-opacity duration-200 group-hover:opacity-100"
+        className={`absolute -right-1 -bottom-1 h-2 w-2 border-b-2 border-r-2 border-neon opacity-70 transition-opacity duration-200${canHover ? " group-hover:opacity-100" : ""}`}
       />
       <span className="chalk glow-neon">Agenda</span>
       <svg
         aria-hidden
         viewBox="0 0 24 24"
         fill="none"
-        className="h-4 w-4 transition-transform duration-200 group-hover:translate-y-0.5"
+        className={`h-4 w-4 transition-transform duration-200${canHover ? " group-hover:translate-y-0.5" : ""}`}
       >
         <path
           d="M12 4v14m0 0l-5-5m5 5l5-5"

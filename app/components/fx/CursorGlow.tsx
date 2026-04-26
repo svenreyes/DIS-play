@@ -28,20 +28,22 @@ export default function CursorGlow() {
   // Viewport-coord values drive the visible glow (position: fixed).
   const x = useMotionValue(-400);
   const y = useMotionValue(-400);
-  const sx = useSpring(x, { stiffness: 220, damping: 24, mass: 0.4 });
-  const sy = useSpring(y, { stiffness: 220, damping: 24, mass: 0.4 });
+  const sx = useSpring(x, { stiffness: 520, damping: 34, mass: 0.2 });
+  const sy = useSpring(y, { stiffness: 520, damping: 34, mass: 0.2 });
 
   // Document-coord values drive the graffiti mask (position: absolute
   // across the scrollable document).
   const xDoc = useMotionValue(-400);
   const yDoc = useMotionValue(-400);
-  const sxDoc = useSpring(xDoc, { stiffness: 220, damping: 24, mass: 0.4 });
-  const syDoc = useSpring(yDoc, { stiffness: 220, damping: 24, mass: 0.4 });
+  const sxDoc = useSpring(xDoc, { stiffness: 520, damping: 34, mass: 0.2 });
+  const syDoc = useSpring(yDoc, { stiffness: 520, damping: 34, mass: 0.2 });
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const isHover = window.matchMedia("(hover: hover)").matches;
-    if (!isHover || reduced) return;
+    const isFineHover = window.matchMedia(
+      "(hover: hover) and (pointer: fine)",
+    ).matches;
+    if (!isFineHover || reduced) return;
     setEnabled(true);
 
     const root = document.documentElement;

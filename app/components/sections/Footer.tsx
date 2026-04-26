@@ -1,5 +1,6 @@
 "use client";
 
+import { useCanHover } from "@/app/hooks/useCanHover";
 import Reveal from "../ui/Reveal";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import { event } from "@/app/data/siteContent";
@@ -20,6 +21,7 @@ const strokes: SprayStroke[] = [
 ];
 
 export default function Footer() {
+  const canHover = useCanHover();
   return (
     <footer className="relative isolate overflow-hidden px-6 pt-24 pb-10 md:px-12 md:pt-40">
       <SprayLayer strokes={strokes} />
@@ -49,12 +51,12 @@ export default function Footer() {
         <div className="flex flex-col gap-2 md:items-end">
           <a
             href={`mailto:${event.email}`}
-            className="group inline-flex items-center gap-2 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.2em] text-bone transition-colors duration-200 hover:text-neon"
+            className={`group inline-flex items-center gap-2 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.2em] text-bone transition-colors duration-200${canHover ? " hover:text-neon" : ""}`}
           >
             <span className="chalk">{event.email}</span>
             <span
               aria-hidden
-              className="h-px w-10 bg-bone/40 transition-all duration-300 group-hover:w-20 group-hover:bg-neon"
+              className={`h-px w-10 bg-bone/40 transition-all duration-300${canHover ? " group-hover:w-20 group-hover:bg-neon" : ""}`}
             />
           </a>
           <div className="font-[family-name:var(--font-body-light)] text-[0.7rem] uppercase tracking-[0.25em] text-bone/40">

@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
 import Reveal from "../ui/Reveal";
+import { useCanHover } from "@/app/hooks/useCanHover";
 import { schedule, type ScheduleItem } from "@/app/data/siteContent";
 
 const rotations = [-0.8, 0.6, -0.4, 0.8, -0.6, 0.5, -0.9, 0.7, -0.3, 0.6];
@@ -51,6 +52,7 @@ const strokes: SprayStroke[] = [
 
 export default function Schedule() {
   const reduced = useReducedMotion();
+  const canHover = useCanHover();
   const slots = groupByTime(schedule);
   const totalItems = schedule.length;
 
@@ -129,7 +131,9 @@ export default function Schedule() {
                     return (
                       <div key={item.title}>
                         <div className="flex items-baseline gap-3">
-                          <h3 className="chalk font-[family-name:var(--font-body-bold)] text-xl uppercase tracking-[0.02em] text-bone transition-colors duration-300 group-hover:text-neon md:text-2xl">
+                          <h3
+                            className={`chalk font-[family-name:var(--font-body-bold)] text-xl uppercase tracking-[0.02em] text-bone transition-colors duration-300 md:text-2xl${canHover ? " group-hover:text-neon" : ""}`}
+                          >
                             {item.title}
                           </h3>
                           <span className="hidden font-[family-name:var(--font-body-light)] text-[0.65rem] uppercase tracking-[0.25em] text-bone/40 md:inline">
