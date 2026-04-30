@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCanHover } from "@/app/hooks/useCanHover";
 import Reveal from "../ui/Reveal";
 import SprayLayer, { type SprayStroke } from "../fx/SprayLayer";
@@ -62,6 +63,25 @@ export default function Footer() {
           <div className="font-[family-name:var(--font-body-light)] text-[0.7rem] uppercase tracking-[0.25em] text-bone/40">
             Creative Tech Summit / A Cornell Tech production
           </div>
+          <a
+            href="https://www.nycxdesign.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`group mt-2 inline-flex items-center gap-2 transition-opacity duration-200${canHover ? " hover:opacity-100" : ""}`}
+            aria-label="Officially part of NYCxDESIGN Week"
+          >
+            <span className="font-[family-name:var(--font-body-bold)] text-[0.6rem] uppercase tracking-[0.28em] text-bone/55">
+              Officially part of
+            </span>
+            <Image
+              src="/NYCxDESIGN_Logo.png"
+              alt="NYCxDESIGN Week"
+              width={1024}
+              height={576}
+              className="h-5 w-auto opacity-85 transition-opacity duration-200 group-hover:opacity-100 md:h-6"
+              style={{ filter: "invert(1) brightness(1.05)" }}
+            />
+          </a>
         </div>
       </div>
 

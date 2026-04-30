@@ -38,7 +38,7 @@ export const schedule: ScheduleItem[] = [
     time: "12:00 – 12:45 PM",
     title: "Creative Studio Networking",
     description:
-      "Meet creatives in the industry and creative studios across New York. Studios join for in-event portfolio reviews.",
+      "Meet creatives and creative studios — SavoirFaire, Code and Theory, ArtBoundInitiative, People Inc, The Lab, NYCxDESIGN — and sit for in-event portfolio reviews with creative directors.",
     speakers: [
       { name: "Bart Baker-Jaillet", role: "Creative Director, SavoirFaire" },
     ],
@@ -53,96 +53,120 @@ export const schedule: ScheduleItem[] = [
     title: "Workshop: Fashion × Tech",
     description:
       "45-minute hands-on workshop at the intersection of fashion and technology, powered by FLORA.",
-    speakers: [
-      { name: "Sasha Zabegalin", role: "Deployed Creative, FLORA" },
-    ],
+    speakers: [{ name: "Sasha Zabegali", role: "FLORA" }],
+  },
+  {
+    time: "1:15 – 2:00 PM",
+    title: "Workshop: Design × Tech",
+    description:
+      "Parallel 45-minute workshop exploring how design practice is being reshaped by new tools.",
+    speakers: [{ name: "Mori Liu", role: "Content Creator" }],
   },
   {
     time: "2:00 – 2:45 PM",
     title: "Workshop: Film × Tech",
     description:
       "45-minute hands-on workshop at the intersection of film and technology, powered by KLING.",
+    speakers: [{ name: "Tao Prompts", role: "Content Creator · @taoprompts" }],
   },
   {
-    time: "2:15 – 3:00 PM",
+    time: "2:00 – 2:45 PM",
+    title: "Workshop: Music × Tech",
+    description:
+      "Parallel 45-minute workshop on building, performing, and engineering sound with new tools.",
+    speakers: [
+      { name: "Kailey Kielle", role: "Sound Designer / Audio Engineer" },
+    ],
+  },
+  {
+    time: "2:45 – 3:30 PM",
     title: "Fireside Chat: What Does It Take to Be a Creative?",
     description:
       "An interactive Q&A with creative professionals from all walks of life — their authentic career journeys, unfiltered.",
     speakers: [
+      { name: "Yi Lu", role: "Moderator" },
       { name: "Limber Zhang", role: "Art Director, MINDS + ASSEMBLY" },
       { name: "Nuran Chen", role: "Product Designer, The New York Times" },
-      { name: "Day Chase", role: "Brand Designer" },
-      { name: "Jinu Kang", role: "Product Designer, PayPal" },
-      { name: "Kailey Kielle", role: "Audio Engineer" },
-      { name: "Yi Chen" },
+      {
+        name: "Izaac Crayton",
+        role: "PD @ M&T Bank · Founder · prev. Morgan Stanley, Ogilvy",
+      },
     ],
   },
   {
-    time: "3:00 – 3:45 PM",
-    title: "Panel Talk: The Future of Creative × Tech",
+    time: "3:30 – 4:15 PM",
+    title: "Panel: The Future of Creative × Tech",
     description:
-      "A panel of creative and technology leaders debate where the industry is heading.",
+      "Creative and technology leaders debate where the industry is heading.",
     speakers: [
-      { name: "William Leon", role: "Moderator / Panelist" },
+      { name: "Michelle Hui", role: "Moderator" },
+      { name: "Koh Marini", role: "Startup Founder, YC W26" },
+      { name: "Karyn Nakamura", role: "Creative Technologist" },
+      { name: "Michael Byrne", role: "Dancer" },
+      { name: "Britney", role: "Production · HBO / Netflix" },
     ],
   },
   {
-    time: "3:45 – 4:00 PM",
+    time: "4:15 – 4:30 PM",
     title: "Break",
     description: "Refreshments.",
   },
   {
-    time: "4:00 – 4:15 PM",
+    time: "4:30 – 4:45 PM",
     title: "Startup Talk",
-    description: "A focused demo from a creative startup.",
+    description: "A 15-minute polished demo from a creative startup.",
     speakers: [{ name: "Timothy Wang", role: "Co-founder, Ponder" }],
   },
   {
-    time: "4:15 – 4:30 PM",
+    time: "4:45 – 5:00 PM",
     title: "Startup Talk",
-    description: "A focused demo from a creative startup.",
+    description: "A 15-minute polished demo from a creative startup.",
     speakers: [{ name: "Louis Moncouyoux", role: "SavoirFaire" }],
   },
   {
-    time: "4:30 – 4:45 PM",
+    time: "5:00 – 5:15 PM",
     title: "Startup Talk",
-    description: "A focused demo from a creative startup.",
-    speakers: [{ name: "Infra AI" }],
+    description: "A 15-minute polished demo from a creative startup.",
+    speakers: [{ name: "Infron AI" }],
   },
   {
-    time: "4:45 – 5:30 PM",
-    title: "Music × Tech Panel",
+    time: "5:15 – 6:00 PM",
+    title: "Music × Tech Panel: The Future of Music Tech",
     description:
       "A conversation at the intersection of music and tech — how AI and new tools are changing how music is made, performed, and experienced.",
     speakers: [
       { name: "Soumya", role: "Moderator" },
       { name: "Juliette Rolnick", role: "Eleven Labs" },
-      { name: "Polina Ivko", role: "Product Marketing Manager, Spotify" },
+      { name: "Polina Ivko", role: "Lawyer" },
+      { name: "Jessica Gramuglia", role: "Songwriter" },
     ],
   },
   {
-    time: "5:30 – 5:45 PM",
+    time: "6:00 – 6:15 PM",
     title: "Keynote: Branding for Creative",
-    description: "Tangible business skills for making it in the industry.",
+    description:
+      "Tangible business-skill lessons to make it in the industry.",
     speakers: [
       { name: "Rei Inamoto", role: "Author, Professor, Founding Member" },
     ],
   },
   {
-    time: "5:45 – 6:00 PM",
-    title: "Keynote: It Looks Good… But We Have to Sell",
+    time: "6:15 – 6:30 PM",
+    title: "Keynote: Sales as a Creative",
     description: "Building a business and sales techniques for creatives.",
     speakers: [{ name: "Khurram Kalimi", role: "Author, CEO" }],
   },
   {
-    time: "6:00 – 6:15 PM",
-    title: "Closing",
-    description: "Wrap-up and send-off.",
-  },
-  {
     time: "7:00 – 8:00 PM",
     title: "After Party",
-    description: "Keep the energy going.",
+    description:
+      "Transit up to the House Rooftop and keep the energy going.",
+  },
+  {
+    time: "7:30 – 8:30 PM",
+    title: "Rapid-Fire Demo",
+    description:
+      "4 minutes to showcase a project — anything goes. Open sign-up for students; in-event sign-ups welcome.",
   },
 ];
 

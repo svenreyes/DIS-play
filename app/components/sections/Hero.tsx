@@ -87,18 +87,39 @@ export default function Hero() {
 
       {/* Top bar */}
       <motion.div
-        className="relative z-20 flex items-start justify-between"
+        className="relative z-20 flex items-start justify-between gap-4"
         style={{ y: yNear }}
       >
-        <div className="flex items-center">
+        <div className="flex items-center gap-2 md:gap-5">
           <Image
             src="/cornell_tech.png"
             alt="Cornell Tech"
             width={410}
             height={130}
             priority
-            className="h-10 w-auto md:h-12"
+            className="h-9 w-auto md:h-12"
           />
+          <span
+            aria-hidden
+            className="hidden h-8 w-px bg-bone/25 md:block"
+          />
+          <a
+            href="https://www.nycxdesign.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            aria-label="NYCxDESIGN Week"
+          >
+            <Image
+              src="/NYCxDESIGN_Logo.png"
+              alt="NYCxDESIGN Week"
+              width={1024}
+              height={576}
+              priority
+              className="h-9 w-auto opacity-90 transition-opacity duration-200 group-hover:opacity-100 md:h-12"
+              style={{ filter: "invert(1) brightness(1.05)" }}
+            />
+          </a>
         </div>
 
         <TagStamp
