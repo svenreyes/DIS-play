@@ -206,6 +206,26 @@ export default function Hero() {
             DIS:PLAY is about breaking the frame. Showing work that&apos;s raw,
             unfinished, and unapologetically experimental.
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href="https://luma.com/bsye2xar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="chalk inline-flex items-center gap-2 border border-dashed border-neon/70 bg-neon/[0.06] px-4 py-2 font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.2em] text-neon transition-colors duration-200 hover:bg-neon/[0.12] glow-neon-soft"
+            >
+              RSVP — Summit
+              <span aria-hidden className="text-neon/50">↗</span>
+            </a>
+            <a
+              href="https://luma.com/x9h9uj1r"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="chalk inline-flex items-center gap-2 border border-dashed border-bone/40 bg-bone/[0.04] px-4 py-2 font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.2em] text-bone/70 transition-colors duration-200 hover:border-bone/70 hover:text-bone"
+            >
+              RSVP — After Party
+              <span aria-hidden className="text-bone/40">↗</span>
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-col items-start gap-2 text-sm font-[family-name:var(--font-body-bold)] uppercase tracking-[0.12em] text-bone md:flex-1 md:items-end md:text-right">
