@@ -41,10 +41,10 @@ export default function Footer() {
           <div className="mb-2 font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.3em] text-neon glow-neon-soft">
             {event.venue} — {event.date}, {event.year}
           </div>
-          <div className="font-[family-name:var(--font-body-light)] text-sm text-bone/65">
+          <div className="emboss-sm font-[family-name:var(--font-display)] text-base tracking-[0.02em] text-rust md:text-lg">
             {event.address}
           </div>
-          <div className="mt-1 font-[family-name:var(--font-body-light)] text-sm text-bone/65">
+          <div className="emboss-sm mt-1 font-[family-name:var(--font-display)] text-base tracking-[0.02em] text-rust md:text-lg">
             {event.time}
           </div>
         </div>
@@ -52,15 +52,15 @@ export default function Footer() {
         <div className="flex flex-col gap-2 md:items-end">
           <a
             href={`mailto:${event.email}`}
-            className={`group inline-flex items-center gap-2 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.2em] text-bone transition-colors duration-200${canHover ? " hover:text-neon" : ""}`}
+            className={`emboss-sm group inline-flex items-center gap-2 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.2em] text-bone transition-colors duration-200${canHover ? " hover:text-neon" : ""}`}
           >
-            <span className="chalk">{event.email}</span>
+            <span>{event.email}</span>
             <span
               aria-hidden
               className={`h-px w-10 bg-bone/40 transition-all duration-300${canHover ? " group-hover:w-20 group-hover:bg-neon" : ""}`}
             />
           </a>
-          <div className="font-[family-name:var(--font-body-light)] text-[0.7rem] uppercase tracking-[0.25em] text-bone/40">
+          <div className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.25em] text-rust">
             Creative Tech Summit / A Cornell Tech production
           </div>
           <a
@@ -70,7 +70,7 @@ export default function Footer() {
             className={`group mt-2 inline-flex items-center gap-2 transition-opacity duration-200${canHover ? " hover:opacity-100" : ""}`}
             aria-label="Officially part of NYCxDESIGN Week"
           >
-            <span className="font-[family-name:var(--font-body-bold)] text-[0.6rem] uppercase tracking-[0.28em] text-bone/55">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.6rem] uppercase tracking-[0.28em] text-acid">
               Officially part of
             </span>
             <Image
@@ -85,7 +85,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-5xl items-center justify-between font-[family-name:var(--font-body-light)] text-[0.65rem] uppercase tracking-[0.3em] text-bone/30">
+      <div className="emboss-sm mx-auto mt-10 flex max-w-5xl items-center justify-between font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.3em] text-rust">
         <span>{`© ${event.year} DIS:PLAY`}</span>
         <span>Unfinished, on purpose.</span>
       </div>

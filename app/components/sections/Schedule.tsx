@@ -68,13 +68,13 @@ export default function Schedule() {
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
-            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-acid">
               // Schedule
             </span>
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="chalk font-[family-name:var(--font-display)] text-3xl leading-[0.85] tracking-[-0.03em] text-bone md:text-7xl">
+          <h2 className="chalk emboss font-[family-name:var(--font-display)] text-3xl leading-[0.85] tracking-[-0.03em] text-bone md:text-7xl">
             <span className="text-neon glow-neon-soft">RUN</span>
             <span className="stroke-text"> / </span>
             OF SHOW
@@ -115,7 +115,7 @@ export default function Schedule() {
                   <span className="whitespace-nowrap font-[family-name:var(--font-display)] text-2xl leading-none tracking-[-0.02em] text-neon glow-neon-soft md:text-3xl">
                     {slot.time}
                   </span>
-                  <span className="font-[family-name:var(--font-body-light)] text-[0.65rem] uppercase tracking-[0.25em] text-bone/40 md:hidden">
+                  <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.25em] text-acid md:hidden">
                     {String(slotIndex + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -132,29 +132,29 @@ export default function Schedule() {
                       <div key={item.title}>
                         <div className="flex items-baseline gap-3">
                           <h3
-                            className={`chalk font-[family-name:var(--font-body-bold)] text-xl uppercase tracking-[0.02em] text-bone transition-colors duration-300 md:text-2xl${canHover ? " group-hover:text-neon" : ""}`}
+                            className={`chalk emboss-sm font-[family-name:var(--font-body-bold)] text-xl uppercase tracking-[0.02em] text-bone transition-colors duration-300 md:text-2xl${canHover ? " group-hover:text-neon" : ""}`}
                           >
                             {item.title}
                           </h3>
-                          <span className="hidden font-[family-name:var(--font-body-light)] text-[0.65rem] uppercase tracking-[0.25em] text-bone/40 md:inline">
+                          <span className="emboss-sm hidden font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.25em] text-acid md:inline">
                             [ {String(globalIndex + 1).padStart(2, "0")} / {totalItems} ]
                           </span>
                         </div>
-                        <p className="emboss-sm mt-1.5 max-w-xl font-[family-name:var(--font-body-light)] text-sm leading-relaxed text-bone/65">
+                        <p className="emboss-sm mt-1.5 max-w-xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
                           {item.description}
                         </p>
                         {item.speakers && item.speakers.length > 0 ? (
-                          <ul className="mt-3 max-w-xl space-y-1 font-[family-name:var(--font-body-light)] text-[0.85rem] leading-snug">
+                          <ul className="mt-3 max-w-xl space-y-1 font-[family-name:var(--font-body)] text-[0.85rem] leading-snug">
                             {item.speakers.map((speaker) => (
                               <li
                                 key={speaker.name}
                                 className="flex flex-wrap items-baseline gap-x-2"
                               >
-                                <span className="font-[family-name:var(--font-body-bold)] uppercase tracking-[0.02em] text-acid">
+                                <span className="emboss-sm font-[family-name:var(--font-body-bold)] uppercase tracking-[0.02em] text-acid">
                                   {speaker.name}
                                 </span>
                                 {speaker.role ? (
-                                  <span className="emboss-sm text-bone/55">
+                                  <span className="emboss-sm text-rust">
                                     — {speaker.role}
                                   </span>
                                 ) : null}

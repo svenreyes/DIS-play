@@ -66,12 +66,9 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden px-6 pt-6 md:px-12 md:pt-10"
+      className="relative isolate overflow-hidden px-6 pt-6 md:px-12 md:pt-10"
     >
-      {/* Hero backplate: a soft dark oval + neon halo pinned behind the
-          title so the wall reads as a stage-lit surface instead of just a
-          dark gradient. Kept as a transparent radial tint only, so the
-          global wall texture continues through it seamlessly. */}
+      {/* Hero backplate */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -85,161 +82,203 @@ export default function Hero() {
 
       <SprayLayer strokes={heroStrokes} />
 
-      {/* Top bar */}
-      <motion.div
-        className="relative z-20 flex items-start justify-between gap-4"
-        style={{ y: yNear }}
-      >
-        <div className="flex items-center gap-2 md:gap-5">
-          <Image
-            src="/cornell_tech.png"
-            alt="Cornell Tech"
-            width={410}
-            height={130}
-            priority
-            className="h-9 w-auto md:h-12"
-          />
-          <span
-            aria-hidden
-            className="hidden h-8 w-px bg-bone/25 md:block"
-          />
-          <a
-            href="https://www.nycxdesign.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group"
-            aria-label="NYCxDESIGN Week"
-          >
-            <Image
-              src="/NYCxDESIGN_Logo.png"
-              alt="NYCxDESIGN Week"
-              width={1024}
-              height={576}
-              priority
-              className="h-9 w-auto opacity-90 transition-opacity duration-200 group-hover:opacity-100 md:h-12"
-              style={{ filter: "invert(1) brightness(1.05)" }}
-            />
-          </a>
-        </div>
-
-        <TagStamp
-          rotate={-2}
-          size="sm"
-          variant="acid"
-          className="chalk self-start !text-[0.55rem] !px-1.5 !py-0.5 shadow-[0_0_0_1px_rgba(200,179,28,0.3)] md:!text-base md:!px-4 md:!py-2"
-        >
-          Creative Tech Summit
-        </TagStamp>
-      </motion.div>
-
-      {/* Centerpiece */}
-      <div className="relative z-10 flex flex-1 items-center justify-center py-10">
+      {/* ── Screen 1: fills the viewport on mobile ── */}
+      <div className="flex min-h-[100svh] flex-col md:min-h-0">
+        {/* Top bar */}
         <motion.div
-          className="relative w-full max-w-[1200px]"
-          style={{ y: yMid, opacity }}
+          className="relative z-20 flex items-start justify-between gap-4"
+          style={{ y: yNear }}
         >
-          {/* DIS: venom swirl — upper-left, angled up */}
-          <motion.div
-            aria-hidden
-            className="relative z-[1] ml-[10%] md:ml-[14%]"
-            style={{ y: yFar }}
-          >
-            <span
-              className="chalk glow-neon inline-block select-none whitespace-nowrap font-[family-name:var(--font-venom)] text-[26vw] leading-[0.85] text-neon md:text-[14vw]"
-              style={{ filter: "blur(0.8px)", transform: "rotate(-5deg)" }}
+          <div className="flex items-center gap-2 md:gap-5">
+            <Image
+              src="/cornell_tech.png"
+              alt="Cornell Tech"
+              width={410}
+              height={130}
+              priority
+              className="h-9 w-auto md:h-12"
+            />
+            <span aria-hidden className="hidden h-8 w-px bg-bone/25 md:block" />
+            <a
+              href="https://www.nycxdesign.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group"
+              aria-label="NYCxDESIGN Week"
             >
-              DIS:
-            </span>
-          </motion.div>
-
-          {/* Track tags scattered across the midfield */}
-          <div className="pointer-events-none absolute inset-0 z-0 hidden md:block">
-            <div className="absolute left-[58%] top-[8%]">
-              <TagStamp rotate={-8} size="md" className="chalk" delay={0.55}>
-                {tracks[0].name}
-              </TagStamp>
-            </div>
-            <div className="absolute left-[78%] top-[2%]">
-              <TagStamp rotate={6} size="md" className="chalk" delay={0.7}>
-                {tracks[1].name}
-              </TagStamp>
-            </div>
-            <div className="absolute left-[4%] top-[62%]">
-              <TagStamp rotate={-6} size="md" className="chalk" delay={0.85}>
-                {tracks[2].name}
-              </TagStamp>
-            </div>
-            <div className="absolute right-[4%] top-[62%]">
-              <TagStamp rotate={7} size="md" className="chalk" delay={1}>
-                {tracks[3].name}
-              </TagStamp>
-            </div>
+              <Image
+                src="/NYCxDESIGN_Logo.png"
+                alt="NYCxDESIGN Week"
+                width={1024}
+                height={576}
+                priority
+                className="h-9 w-auto opacity-90 transition-opacity duration-200 group-hover:opacity-100 md:h-12"
+                style={{ filter: "invert(1) brightness(1.05)" }}
+              />
+            </a>
           </div>
 
-          {/* PLAY crisp layer — sits below DIS, centered, straight */}
-          <motion.h1
-            aria-label="DIS:PLAY"
-            className="relative z-[2] mt-[3vw] flex flex-col items-center text-center font-[family-name:var(--font-display)] leading-[0.82] md:mt-[4vw]"
-            initial={reduced ? {} : { opacity: 0, y: 50 }}
-            animate={reduced ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1], delay: 0.3 }}
+          <TagStamp
+            rotate={-2}
+            size="sm"
+            variant="acid"
+            className="chalk self-start !text-[0.55rem] !px-1.5 !py-0.5 shadow-[0_0_0_1px_rgba(200,179,28,0.3)] md:!text-base md:!px-4 md:!py-2"
           >
-            <span className="chalk glow-neon block text-[36vw] tracking-[-0.04em] text-neon md:text-[19vw]">
-              PLAY
-            </span>
-          </motion.h1>
+            Creative Tech Summit
+          </TagStamp>
+        </motion.div>
+
+        {/* Centerpiece */}
+        <div className="relative z-10 flex flex-1 items-center justify-center py-8 md:py-10">
+          <motion.div
+            className="relative w-full max-w-[1200px]"
+            style={{ y: yMid, opacity }}
+          >
+            {/* DIS: venom swirl */}
+            <motion.div
+              aria-hidden
+              className="relative z-[1] ml-[10%] md:ml-[14%]"
+              style={{ y: yFar }}
+            >
+              <span
+                className="chalk glow-neon inline-block select-none whitespace-nowrap font-[family-name:var(--font-venom)] text-[26vw] leading-[0.85] text-neon md:text-[14vw]"
+                style={{ filter: "blur(0.8px)", transform: "rotate(-5deg)" }}
+              >
+                DIS:
+              </span>
+            </motion.div>
+
+            {/* Track tags */}
+            <div className="pointer-events-none absolute inset-0 z-0 hidden md:block">
+              <div className="absolute left-[58%] top-[8%]">
+                <TagStamp rotate={-8} size="md" className="chalk" delay={0.55}>
+                  {tracks[0].name}
+                </TagStamp>
+              </div>
+              <div className="absolute left-[78%] top-[2%]">
+                <TagStamp rotate={6} size="md" className="chalk" delay={0.7}>
+                  {tracks[1].name}
+                </TagStamp>
+              </div>
+              <div className="absolute left-[4%] top-[62%]">
+                <TagStamp rotate={-6} size="md" className="chalk" delay={0.85}>
+                  {tracks[2].name}
+                </TagStamp>
+              </div>
+              <div className="absolute right-[4%] top-[62%]">
+                <TagStamp rotate={7} size="md" className="chalk" delay={1}>
+                  {tracks[3].name}
+                </TagStamp>
+              </div>
+            </div>
+
+            {/* PLAY */}
+            <motion.h1
+              aria-label="DIS:PLAY"
+              className="relative z-[2] mt-[3vw] flex flex-col items-center text-center font-[family-name:var(--font-display)] leading-[0.82] md:mt-[4vw]"
+              initial={reduced ? {} : { opacity: 0, y: 50 }}
+              animate={reduced ? {} : { opacity: 1, y: 0 }}
+              transition={{ duration: 1.1, ease: [0.2, 0.8, 0.2, 1], delay: 0.3 }}
+            >
+              <span className="chalk glow-neon block text-[36vw] tracking-[-0.04em] text-neon md:text-[19vw]">
+                PLAY
+              </span>
+            </motion.h1>
+          </motion.div>
+        </div>
+
+        {/* Tagline + subtext + event meta */}
+        <motion.div
+          className="relative z-20 mb-8 flex flex-col gap-6 md:mb-0 md:flex-row md:items-end md:justify-between md:gap-10"
+          style={{ y: yNear }}
+        >
+          <div className="max-w-xl md:flex-1">
+            <h2 className="emboss font-[family-name:var(--font-body-bold)] text-2xl uppercase leading-[1.05] tracking-[0.02em] text-bone md:text-3xl">
+              Disrupt the display.
+              <br />
+              Play with the rules.
+            </h2>
+            <p className="emboss-sm mt-4 max-w-md font-[family-name:var(--font-body)] text-[0.95rem] leading-relaxed text-white">
+              DIS:PLAY is about breaking the frame. Showing work that&apos;s raw,
+              unfinished, and unapologetically experimental.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-start gap-2 text-bone md:flex-1 md:items-end md:text-right">
+            <div className="flex flex-wrap items-center gap-2 font-[family-name:var(--font-display)] text-lg uppercase tracking-[0.04em] md:text-xl">
+              <span className="text-neon glow-neon-soft">{event.date}</span>
+              <Dot />
+              <span className="text-neon glow-neon-soft">{event.time}</span>
+              <Dot />
+              <span className="emboss-sm">{event.venue}</span>
+            </div>
+            <div className="emboss-sm font-[family-name:var(--font-display)] text-sm tracking-[0.04em] text-rust md:text-base">
+              {event.address}
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Tagline + subtext + event meta */}
+      {/* ── Screen 2 on mobile: RSVP cards ── */}
       <motion.div
-        className="relative z-20 mb-10 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between md:gap-10"
+        className="relative z-20 grid grid-cols-1 gap-4 py-10 md:mb-12 md:mt-6 md:grid-cols-2 md:gap-5 md:py-0"
         style={{ y: yNear }}
       >
-        <div className="max-w-xl md:flex-1">
-          <h2 className="emboss font-[family-name:var(--font-body-bold)] text-2xl uppercase leading-[1.05] tracking-[0.02em] text-bone md:text-3xl">
-            Disrupt the display.
-            <br />
-            Play with the rules.
-          </h2>
-          <p className="emboss-sm mt-4 max-w-md font-[family-name:var(--font-body-light)] text-[0.95rem] leading-relaxed text-bone/75">
-            DIS:PLAY is about breaking the frame. Showing work that&apos;s raw,
-            unfinished, and unapologetically experimental.
+        <a
+          href="https://luma.com/bsye2xar"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative overflow-hidden border-2 border-dashed border-neon bg-ink/80 p-7 transition-colors duration-300 hover:bg-neon/[0.08] md:p-8"
+          style={{ boxShadow: "inset 0 0 0 1px rgba(92,205,15,0.08), 0 0 28px rgba(92,205,15,0.12)" }}
+        >
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-neon/[0.04]" />
+          <div className="flex items-start justify-between">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.3em] text-neon">
+              // Summit
+            </span>
+            <span className="emboss-sm font-[family-name:var(--font-display)] text-sm uppercase tracking-[0.06em] text-acid">
+              May 13 · 12–7PM
+            </span>
+          </div>
+          <div className="mt-6 flex items-end justify-between gap-4">
+            <h3 className="chalk font-[family-name:var(--font-display)] text-5xl leading-[0.9] tracking-[-0.02em] text-neon glow-neon md:text-6xl">
+              RSVP
+            </h3>
+            <span className="emboss-sm inline-flex items-center gap-2 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.18em] text-neon transition-transform duration-200 group-hover:translate-x-1">
+              Register ↗
+            </span>
+          </div>
+          <p className="emboss-sm mt-4 font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
+            Workshops, panels, fireside chats, startup demos, and keynotes.
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a
-              href="https://luma.com/bsye2xar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="chalk inline-flex items-center gap-2 border border-dashed border-neon/70 bg-neon/[0.06] px-4 py-2 font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.2em] text-neon transition-colors duration-200 hover:bg-neon/[0.12] glow-neon-soft"
-            >
-              RSVP — Summit
-              <span aria-hidden className="text-neon/50">↗</span>
-            </a>
-            <a
-              href="https://luma.com/x9h9uj1r"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="chalk inline-flex items-center gap-2 border border-dashed border-bone/40 bg-bone/[0.04] px-4 py-2 font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.2em] text-bone/70 transition-colors duration-200 hover:border-bone/70 hover:text-bone"
-            >
-              RSVP — After Party
-              <span aria-hidden className="text-bone/40">↗</span>
-            </a>
-          </div>
-        </div>
+        </a>
 
-        <div className="flex flex-col items-start gap-2 text-sm font-[family-name:var(--font-body-bold)] uppercase tracking-[0.12em] text-bone md:flex-1 md:items-end md:text-right">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-neon glow-neon-soft">{event.date}</span>
-            <Dot />
-            <span className="text-neon glow-neon-soft">{event.time}</span>
-            <Dot />
-            <span className="emboss-sm">{event.venue}</span>
+        <a
+          href="https://luma.com/x9h9uj1r"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative overflow-hidden border border-bone/20 bg-ink-2/60 p-7 transition-colors duration-300 hover:border-bone/50 md:p-8"
+        >
+          <div className="flex items-start justify-between">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.3em] text-acid">
+              // After Party
+            </span>
+            <span className="emboss-sm font-[family-name:var(--font-display)] text-sm uppercase tracking-[0.06em] text-acid">
+              7–8PM · Rooftop
+            </span>
           </div>
-          <div className="font-[family-name:var(--font-body-light)] text-xs tracking-[0.08em] text-bone/60">
-            {event.address}
+          <div className="mt-6 flex items-end justify-between gap-4">
+            <h3 className="chalk emboss font-[family-name:var(--font-display)] text-5xl leading-[0.9] tracking-[-0.02em] text-bone md:text-6xl">
+              RSVP
+            </h3>
+            <span className="emboss-sm inline-flex items-center gap-2 font-[family-name:var(--font-body-bold)] text-sm uppercase tracking-[0.18em] text-rust transition-transform duration-200 group-hover:translate-x-1 group-hover:text-rust">
+              Register ↗
+            </span>
           </div>
-        </div>
+          <p className="emboss-sm mt-4 font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
+            Drinks, DJ set, and open networking with speakers and founders.
+          </p>
+        </a>
       </motion.div>
     </section>
   );

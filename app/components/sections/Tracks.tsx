@@ -72,13 +72,13 @@ export default function Tracks() {
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
-            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-acid">
               // Tracks
             </span>
           </div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="chalk max-w-2xl font-[family-name:var(--font-display)] text-5xl leading-[0.85] tracking-[-0.03em] text-bone md:text-right md:text-6xl">
+          <h2 className="chalk emboss max-w-2xl font-[family-name:var(--font-display)] text-5xl leading-[0.85] tracking-[-0.03em] text-bone md:text-right md:text-6xl">
             FOUR CORNERS
             <br />
             <span className="text-neon glow-neon-soft">OF DIS:PLAY</span>
@@ -153,9 +153,9 @@ function TrackCard({
         <Corner className="absolute bottom-2 left-2 -rotate-90" />
         <Corner className="absolute bottom-2 right-2 rotate-180" />
 
-        <div className="flex items-center justify-between text-[0.7rem] uppercase tracking-[0.25em] text-acid/80">
+        <div className="emboss-sm flex items-center justify-between text-[0.7rem] uppercase tracking-[0.25em] text-acid">
           <span className="font-[family-name:var(--font-body-bold)]">TRACK / {String(index).padStart(2, "0")}</span>
-          <span className="font-[family-name:var(--font-body-light)] text-bone/40">DIS:PLAY 2026</span>
+          <span className="font-[family-name:var(--font-body-bold)] text-acid">DIS:PLAY 2026</span>
         </div>
 
         <div className="relative mt-auto pt-10">
@@ -175,14 +175,14 @@ function TrackCard({
             {name.toUpperCase()}
           </span>
           <h3
-            className={`chalk relative font-[family-name:var(--font-display)] ${displaySizeClass} leading-[0.8] tracking-[-0.03em] text-bone transition-colors duration-300 ${hoverOrTap("group-hover:text-neon group-hover:glow-neon", "group-active:text-neon group-active:glow-neon")}`}
+            className={`chalk emboss relative font-[family-name:var(--font-display)] ${displaySizeClass} leading-[0.8] tracking-[-0.03em] text-bone transition-colors duration-300 ${hoverOrTap("group-hover:text-neon group-hover:glow-neon", "group-active:text-neon group-active:glow-neon")}`}
           >
             {name.toUpperCase()}
           </h3>
         </div>
 
         <div className="mt-6 flex items-end justify-between">
-          <p className="max-w-[60%] font-[family-name:var(--font-body-light)] text-sm leading-snug text-bone/65">
+          <p className="emboss-sm max-w-[60%] font-[family-name:var(--font-body)] text-sm leading-snug text-white">
             {tagline}
           </p>
           <span

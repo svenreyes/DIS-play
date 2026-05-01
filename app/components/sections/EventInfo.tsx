@@ -85,7 +85,7 @@ export default function EventInfo() {
       <Reveal>
         <div className="mb-12 flex items-center gap-4">
           <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
-          <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+          <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-acid">
             // Event Info
           </span>
         </div>
@@ -135,21 +135,21 @@ function InfoCard({ eyebrow, value, sub, variant, size }: Card) {
       className={`chalk relative flex min-h-[140px] flex-col justify-between border-2 border-dashed p-5 md:p-6 ${border}`}
     >
       <div className="flex items-center justify-between">
-        <span className="font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.2em] text-bone/60">
+        <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.2em] text-acid">
           {eyebrow}
         </span>
-        <span className="font-[family-name:var(--font-body-light)] text-[0.65rem] uppercase tracking-[0.3em] text-bone/40">
+        <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.3em] text-acid">
           /// 01
         </span>
       </div>
       <div className="mt-4">
         <div
-          className={`font-[family-name:var(--font-display)] leading-[0.9] tracking-[-0.02em] ${valueClr} ${valueSize}`}
+          className={`emboss font-[family-name:var(--font-display)] leading-[0.9] tracking-[-0.02em] ${valueClr} ${valueSize}`}
         >
           {value}
         </div>
         {sub ? (
-          <div className="mt-2 font-[family-name:var(--font-body-light)] text-sm uppercase tracking-[0.2em] text-bone/50">
+          <div className="emboss-sm mt-2 font-[family-name:var(--font-display)] text-base uppercase tracking-[0.04em] text-rust md:text-lg">
             {sub}
           </div>
         ) : null}

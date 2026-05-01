@@ -44,7 +44,7 @@ export default function GetInvolved() {
         <Reveal>
           <div className="flex items-center gap-4">
             <span className="h-2 w-2 bg-neon" style={{ boxShadow: "0 0 10px rgba(92,205,15,0.9)" }} />
-            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-bone/70">
+            <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-xs uppercase tracking-[0.3em] text-acid">
               // Get Involved
             </span>
           </div>
@@ -81,13 +81,13 @@ export default function GetInvolved() {
             />
             <div className="flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
               <div>
-                <div className="mb-3 font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.3em] text-neon/80">
+                <div className="emboss-sm mb-3 font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.3em] text-neon">
                   To sign up
                 </div>
-                <h3 className="chalk font-[family-name:var(--font-display)] text-4xl leading-[0.9] tracking-[-0.02em] text-bone md:text-6xl">
+                <h3 className="chalk emboss font-[family-name:var(--font-display)] text-4xl leading-[0.9] tracking-[-0.02em] text-bone md:text-6xl">
                   Email <span className="text-neon glow-neon">{event.contactName}</span>.
                 </h3>
-                <p className="mt-4 max-w-md font-[family-name:var(--font-body-light)] text-sm leading-relaxed text-bone/70">
+                <p className="mt-4 max-w-md font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
                   Send a short note, a link, or a half-baked idea. We respond to
                   everything.
                 </p>
@@ -131,12 +131,12 @@ function RoleCard({
     >
       <div className="flex items-start justify-between">
         <span
-          className="chalk font-[family-name:var(--font-display)] text-5xl leading-none text-acid"
+          className="chalk emboss-sm font-[family-name:var(--font-display)] text-5xl leading-none text-acid"
           style={{ transform: "rotate(-4deg)", display: "inline-block" }}
         >
           {index}
         </span>
-        <span className="font-[family-name:var(--font-body-light)] text-[0.65rem] uppercase tracking-[0.3em] text-bone/40">
+        <span className="emboss-sm font-[family-name:var(--font-body-bold)] text-[0.65rem] uppercase tracking-[0.3em] text-acid">
           ROLE
         </span>
       </div>
@@ -145,12 +145,12 @@ function RoleCard({
         {title}
       </h3>
 
-      <p className="mt-3 font-[family-name:var(--font-body-light)] text-sm leading-relaxed text-bone/75">
+      <p className="emboss-sm mt-3 font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
         {description}
       </p>
 
       {meta.length > 0 ? (
-        <ul className="mt-5 space-y-1.5 border border-dashed border-acid/60 bg-acid/[0.03] p-4 font-[family-name:var(--font-body-light)] text-[0.8rem] leading-snug text-bone/85">
+          <ul className="emboss-sm mt-5 space-y-1.5 border border-dashed border-acid/60 bg-acid/[0.03] p-4 font-[family-name:var(--font-body)] text-[0.8rem] leading-snug text-white">
           {meta.map((m) => (
             <li key={m} className="flex items-start gap-2">
               <span
