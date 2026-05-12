@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: "DIS:PLAY — Creative Tech Summit at Cornell Tech",
   description:
-    "Disrupt the display. Play with the rules. An experimental creative tech summit at Cornell Tech. May 13th · 12PM–7PM · 2 West Loop Rd, New York, NY.",
+    "Disrupt the display. Play with the rules. An experimental creative tech summit at Cornell Tech (Tata Innovation Center). May 13th · 12PM–7PM · 11 E Loop Rd, New York, NY.",
   alternates: {
     canonical: "/",
   },
@@ -113,15 +113,15 @@ const jsonLd = {
   description:
     "Disrupt the display. Play with the rules. An experimental creative tech summit at Cornell Tech featuring workshops, panels, fireside chats, startup demos, and more.",
   startDate: "2026-05-13T12:00:00-04:00",
-  endDate: "2026-05-13T19:00:00-04:00",
+  endDate: "2026-05-13T21:00:00-04:00",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {
     "@type": "Place",
-    name: "Cornell Tech",
+    name: "Cornell Tech — Tata Innovation Center",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "2 West Loop Rd",
+      streetAddress: "11 E Loop Rd",
       addressLocality: "New York",
       addressRegion: "NY",
       postalCode: "10044",

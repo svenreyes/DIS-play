@@ -264,7 +264,7 @@ export default function Hero() {
               // After Party
             </span>
             <span className="emboss-sm font-[family-name:var(--font-display)] text-sm uppercase tracking-[0.06em] text-acid">
-              7–8PM · Rooftop
+              7–9PM · River Room
             </span>
           </div>
           <div className="mt-6 flex items-end justify-between gap-4">
@@ -276,7 +276,8 @@ export default function Hero() {
             </span>
           </div>
           <p className="emboss-sm mt-4 font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
-            Drinks, DJ set, and open networking with speakers and founders.
+            Rapid-fire demos, open networking, and a Mio Matcha pop-up at the
+            River Room. Hosted with Epic Connector.
           </p>
         </a>
       </motion.div>

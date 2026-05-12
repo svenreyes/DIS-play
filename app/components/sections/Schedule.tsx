@@ -140,6 +140,16 @@ export default function Schedule() {
                             [ {String(globalIndex + 1).padStart(2, "0")} / {totalItems} ]
                           </span>
                         </div>
+                        {item.location ? (
+                          <div className="emboss-sm mt-1 inline-flex items-center gap-1.5 font-[family-name:var(--font-body-bold)] text-[0.7rem] uppercase tracking-[0.18em] text-acid">
+                            <span
+                              aria-hidden
+                              className="inline-block h-1 w-1 bg-acid"
+                              style={{ boxShadow: "0 0 6px rgba(200,179,28,0.6)" }}
+                            />
+                            {item.location}
+                          </div>
+                        ) : null}
                         <p className="emboss-sm mt-1.5 max-w-xl font-[family-name:var(--font-body)] text-sm leading-relaxed text-white">
                           {item.description}
                         </p>

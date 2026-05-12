@@ -34,7 +34,8 @@ const cards: Card[] = [
   },
   {
     eyebrow: "Where",
-    value: event.venue,
+    value: event.building,
+    sub: event.venue,
     rotate: -2,
     variant: "stroke",
     className: "md:col-start-2 md:row-start-2 md:translate-y-4",
@@ -43,6 +44,7 @@ const cards: Card[] = [
   {
     eyebrow: "Address",
     value: event.address,
+    sub: "Roosevelt Island",
     rotate: 4,
     variant: "neon",
     className: "md:col-start-4 md:row-start-2 md:-translate-y-2",
